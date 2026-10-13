@@ -85,7 +85,7 @@ Un solo CSV; licencia Open Data Commons Attribution.
 |---|---|
 | Archivo | `datos_abiertos_vigilancia_dengue_2000_2024.csv`, 108 550 394 bytes, modificado el 2025-12-16 |
 | Filas | 1 029 421: un caso por fila, sin identificador del caso |
-| Periodo | Años 2000 a 2024, semanas epidemiológicas 1 a 53 (la 53 solo en 2020) |
+| Periodo | Años 2000 a 2024, semanas epidemiológicas 1 a 53 (la 53 aparece en 2003, 2008, 2009, 2014 y 2020) |
 | Codificación | Texto con separador `;` y fin de línea CRLF |
 | Columnas | `departamento`, `provincia`, `distrito`, `localidad`, `enfermedad`, `ano`, `semana`, `diagnostic` (CIE-10), `diresa`, `ubigeo`, `localcod`, `edad`, `tipo_edad`, `sexo` |
 | Territorio | 23 departamentos, 662 UBIGEO (lugar probable de infección), 6 dígitos siempre |
@@ -126,11 +126,11 @@ analista que compare contra el titular de la alerta vería una brecha de 6,2 % q
 
 Todo lo siguiente se resolverá en las Fases 2 y 3:
 
-1. **No hay identificador de caso.** Hay 152 091 filas idénticas (14,8 %), pero **no son duplicados**:
+1. **No hay identificador de caso.** Hay 152 091 filas idénticas en las 14 columnas (14,8 %), pero **no son duplicados**:
    dos personas de la misma edad y sexo en el mismo distrito y semana producen la misma fila. No se
    eliminan.
-2. **La edad trae valores imposibles.** 12 casos de 2017 con edades de 814 a 71 963 641 años (códigos o
-   errores de digitación), 42 casos de más de 100 años y 7 de 0 años. La edad viene en años, meses
+2. **La edad trae valores imposibles.** 14 casos de más de 110 años (11 de 2017, 1 de 2022 y 2 de 2023), hasta
+   71 963 641 años (códigos o errores de digitación), 28 más entre 100 y 110 años y 7 de 0 años. La edad viene en años, meses
    o días (`tipo_edad`): 6 377 casos en meses y 324 en días.
 3. **La clasificación clínica cambió.** «Con signos de alarma» aparece desde 2010 (134 casos) y se usa
    de verdad desde 2011 (3 508). Antes solo existen «sin signos» y «grave»: la parte de casos graves
@@ -138,8 +138,8 @@ Todo lo siguiente se resolverá en las Fases 2 y 3:
 4. **La documentación no coincide con el archivo.** La descripción del portal habla de `tipo_dx`
    (confirmado, probable, sospechoso) y de 13 variables; el archivo no trae esa columna y trae otras
    dos (`localidad` y `localcod`).
-5. **`localidad` y `localcod` están sucias.** `localidad` tiene 53 909 vacíos y mezcla nombres con
-   códigos de 6 dígitos (2 997); `localcod` tiene 148 616 vacíos y 25 605 ceros. No se usan.
+5. **`localidad` y `localcod` están sucias.** `localidad` tiene 53 909 vacíos y 68 689 «NULL», y mezcla nombres con
+   códigos de 6 dígitos (2 997); `localcod` tiene 148 616 vacíos, 25 605 ceros y a veces un nombre. No se usan.
 6. **`diresa` tiene 23 vacíos** y una Diresa puede cubrir más de un departamento; el departamento sale
    del UBIGEO.
 7. **Lima es un solo departamento.** El conjunto de población lo parte en dos: hay que sumarlos.

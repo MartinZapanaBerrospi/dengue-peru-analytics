@@ -1,0 +1,32 @@
+dimension,regla,medido,resultado,severidad,detalle
+Completitud,Los 11 campos esenciales no traen vacíos,0.0,cumple,bloqueante,"departamento, provincia, distrito, enfermedad, año, semana, CIE-10, UBIGEO, edad, tipo de edad y sexo"
+Completitud,`diresa` con menos de 1 % de vacíos,23.0,cumple,alerta,23 vacíos (0.00 %)
+Completitud,`localidad` con menos de 1 % de vacíos,122598.0,alerta,alerta,122 598 vacíos (11.91 %)
+Completitud,`localcod` con menos de 1 % de vacíos,148641.0,alerta,alerta,148 641 vacíos (14.44 %)
+Completitud,Hay casos en cada año de 2000 a 2024,0.0,cumple,bloqueante,años sin casos: ninguno
+Unicidad,Filas idénticas (informativa: no hay identificador de caso),152091.0,cumple,info,152 091 filas (14.8 %) repiten otra; no son duplicados: dos pacientes con la misma edad  sexo  lugar y semana producen la misma fila
+Unicidad,Cada UBIGEO tiene un solo nombre de distrito,0.0,cumple,bloqueante,662 UBIGEO
+Unicidad,Cada UBIGEO tiene una sola provincia y un solo departamento,0.0,cumple,bloqueante,
+Validez,Sexo es F o M,0.0,cumple,bloqueante,
+Validez,"Tipo de edad es A, M o D",0.0,cumple,bloqueante,
+Validez,Año entre 2000 y 2024,0.0,cumple,bloqueante,
+Validez,Semana epidemiológica entre 1 y 53,0.0,cumple,bloqueante,
+Validez,La semana 53 solo aparece en años con 53 semanas,1903.0,cumple,info,1 903 casos en la semana 53  todos de [2003  2008  2009  2014  2020]
+Validez,"CIE-10 es A97.0, A97.1 o A97.2",0.0,cumple,bloqueante,
+Validez,UBIGEO de 6 dígitos numéricos,0.0,cumple,bloqueante,
+Validez,El UBIGEO existe en el padrón de distritos,1678.0,alerta,alerta,10 UBIGEO fuera del padrón (distritos creados desde 2021)  1 678 casos
+Validez,Edad de 110 años o menos,14.0,alerta,alerta,14 casos de [2017  2022  2023]  con hasta 71 963 641 años
+Validez,Edad de 0 en años (se toma como menor de 1 año),7.0,cumple,info,7 casos
+Consistencia,La forma clínica corresponde al CIE-10,0.0,cumple,bloqueante,"A97.0 sin signos, A97.1 con signos de alarma, A97.2 grave"
+Consistencia,El nombre del departamento corresponde al prefijo del UBIGEO,0.0,cumple,bloqueante,23 prefijos
+Consistencia,Edad en meses de 11 o menos (desde 12 meses es 1 año),14.0,alerta,alerta,14 casos
+Consistencia,Edad en días de 30 o menos,0.0,cumple,alerta,0 casos
+Consistencia,«Con signos de alarma» no aparece antes de 2010 (cambio de clasificación),1.0,alerta,alerta,1 caso(s) antes de 2010: [2002]
+Exactitud,V1: casos por año igual a la sala situacional del CDC (2012–2024),0.0,cumple,bloqueante,13 comparaciones; diferencia máxima 0.008 %
+Exactitud,V2: reparto por forma clínica de 2023 igual al de la alerta del CDC,0.0,cumple,bloqueante,3 comparaciones; diferencia máxima 2.897 %
+Exactitud,V3: población nacional igual a la implícita en la incidencia oficial,0.0,cumple,bloqueante,1 comparaciones; diferencia máxima 0.320 %
+Exactitud,V4: población de los departamentos suma la nacional,0.0,cumple,bloqueante,12 comparaciones; diferencia máxima 0.000 %
+Exactitud,V4: población de las provincias suma la nacional (desde 2016),0.0,cumple,bloqueante,2013–2015 traen solo parte de las provincias
+Exactitud,Casos de 2023 frente al titular de la alerta (informativa: corte distinto),-6.227,cumple,info,el CDC revisa la serie: 273 684 en la alerta de 2024 y 256 641 en la sala vigente
+Oportunidad,El archivo llega al año más reciente que publica el CDC,2.0,alerta,alerta,el archivo llega a 2024; la sala situacional ya muestra 2026
+Oportunidad,Rezago de publicación de 6 meses o menos,12.0,alerta,alerta,los datos terminan en diciembre de 2024 y se publicaron el 2025-12-16: 12 meses
