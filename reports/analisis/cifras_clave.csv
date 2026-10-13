@@ -1,0 +1,113 @@
+cifra,valor,descripcion
+casos_total,1029421,Casos de dengue de 2000 a 2024
+casos_2024,271531,Casos en 2024
+casos_2023,256641,Casos en 2023
+casos_2022,63217,Casos en 2022
+casos_2017,68290,"Casos en 2017, la mayor epidemia antes de 2023"
+casos_2018,4698,Casos en 2018
+casos_2000,5557,Casos en 2000
+veces_2023_vs_2022,4.059683313032886,Veces que 2023 multiplicó los casos de 2022
+veces_2023_vs_2017,3.75810513984478,Veces que 2023 supera a la epidemia de 2017
+var_2024_vs_2023,0.05801878889187617,Cambio de los casos de 2024 frente a 2023
+anios_alta_transmision,"2017, 2022, 2023, 2024",Años con más de 50 mil casos
+casos_2023_2024_pct,0.5130767683969921,Parte de todos los casos de 25 años que cae en 2023 y 2024
+incidencia_2023,760.962423950013,Incidencia por 100 mil en 2023
+incidencia_2024,797.7182984528353,Incidencia por 100 mil en 2024
+incidencia_2017,218.616251008207,Incidencia por 100 mil en 2017
+incidencia_2018,14.884926967856732,Incidencia por 100 mil en 2018
+incidencia_2013,42.956318762595515,Incidencia por 100 mil en 2013
+fallecidos_2023,444,Fallecidos por dengue en 2023 (CDC)
+fallecidos_2024,261,Fallecidos por dengue en 2024 (CDC)
+fallecidos_2012_2024,1255,Fallecidos por dengue de 2012 a 2024 (CDC)
+letalidad_2023_pct,0.17300431341835482,"Letalidad 2023 (CDC), en %"
+letalidad_2024_pct,0.09612162147231808,"Letalidad 2024 (CDC), en %"
+letalidad_2018_pct,0.3831417624521073,"Letalidad 2018 (CDC), en %"
+letalidad_max_anio,2018,Año de mayor letalidad 2012–2024
+casos_2025_cdc,35852,Casos de 2025 en la sala situacional del CDC (no están en el archivo abierto)
+casos_2026_cdc,46669,Casos de 2026 hasta la semana 33 (no están en el archivo abierto)
+semana_pico_2017,18,Semana pico de 2017
+semana_pico_2023,20,Semana pico de 2023
+semana_pico_2024,14,Semana pico de 2024
+casos_semana_pico_2023,19269,Casos en la semana pico de 2023
+casos_semana_pico_2024,21628,Casos en la semana pico de 2024
+semana_50pct_2023,22,Semana en que 2023 acumula la mitad de sus casos
+semana_50pct_2024,14,Semana en que 2024 acumula la mitad de sus casos
+adelanto_pico_2024,6,Semanas que se adelantó el pico de 2024 frente a 2023
+pct_primer_semestre_normal,0.6858622133945697,"Parte de los casos que cae de la semana 1 a la 26, años normales"
+pct_primer_semestre_2023,0.7097891607342552,Parte de los casos de 2023 que cae en el primer semestre
+pct_primer_semestre_2024,0.937616699382391,Parte de los casos de 2024 que cae en el primer semestre
+semana_pico_normal,16,Semana más alta del perfil de años normales
+semanas_normales_n,15,Años en el perfil de temporada normal
+pct_semanas_10_a_22_normal,0.39429825772381305,"Parte de los casos que cae entre las semanas 10 y 22, años normales"
+pct_semanas_10_a_22_2023,0.4627047120296445,Parte de los casos de 2023 entre las semanas 10 y 22
+dep_mayor_incidencia,Tumbes,Departamento con mayor incidencia en 2023–2024
+dep_mayor_incidencia_valor,3427.032352680265,Su incidencia anual media 2023–2024 por 100 mil
+dep_mayor_incidencia_veces,4.396871698684588,Veces la incidencia nacional
+dep_2_incidencia,Piura,Segundo departamento por incidencia 2023–2024
+dep_2_incidencia_valor,2608.093248861195,Su incidencia anual media 2023–2024
+dep_3_incidencia,Ica,Tercer departamento por incidencia 2023–2024
+incidencia_nacional_2023_2024,779.425143041024,Incidencia anual media nacional 2023–2024 por 100 mil
+deps_con_casos_2023,20,Departamentos con casos en 2023
+deps_sobre_nacional,7,Departamentos con incidencia 2023–2024 sobre la nacional
+distritos_2000,90,Distritos con casos en 2000
+distritos_2024,561,Distritos con casos en 2024
+distritos_2017,329,Distritos con casos en 2017
+deps_2000,11,Departamentos con casos en 2000
+deps_2024,22,Departamentos con casos en 2024
+provincias_2024,105,Provincias con casos en 2024
+pct_piura_2017,0.6483379704202665,Parte de los casos de 2017 que fue de Piura
+pct_piura_2023,0.30900752412903626,Parte de los casos de 2023 que fue de Piura
+pct_piura_2024,0.11875623777763865,Parte de los casos de 2024 que fue de Piura
+pct_lima_2023,0.11975872911966522,Parte de los casos de 2023 que fue de Lima
+pct_lima_2024,0.3235873620323278,Parte de los casos de 2024 que fue de Lima
+casos_lima_2024,87864,Casos de Lima en 2024
+casos_lima_2022,938,Casos de Lima en 2022
+provincia_mayor_incidencia,Huarmey,Provincia (20 mil hab. o más) con mayor incidencia 2023–2024
+provincia_mayor_incidencia_valor,4976.445898944835,Su incidencia anual media 2023–2024
+provincia_mayor_incidencia_dep,Áncash,Su departamento
+distrito_mas_casos,Piura,Distrito con más casos en 2023–2024
+distrito_mas_casos_valor,15568,Sus casos en 2023–2024
+distrito_mas_casos_dep,Piura,Su departamento
+top10_distritos_pct,0.24201775179297652,Parte de los casos de 2023–2024 en los 10 distritos con más
+mediana_edad_total,28.0,Mediana de edad de todos los casos con edad válida
+mediana_edad_2024,30.0,Mediana de edad en 2024
+mediana_edad_2012,21.0,Mediana de edad en 2012
+mediana_edad_2000,26.0,Mediana de edad en 2000
+pct_mujeres_total,0.5378528318345944,Parte de los casos que son mujeres
+pct_adultez_total,0.3780620368148697,Parte de los casos de 30 a 59 años
+pct_juventud_total,0.2332952212943004,Parte de los casos de 18 a 29 años
+pct_ninez_total,0.16387658693576293,Parte de los casos de menores de 12 años
+pct_adulto_mayor_total,0.08794749669960104,Parte de los casos de 60 años o más
+pct_adultez_2000_2010,0.36476388525319553,"Parte de 30 a 59 años, promedio 2000–2010"
+pct_adultez_2023_2024,0.39516622420650127,"Parte de 30 a 59 años, promedio 2023–2024"
+pct_ninez_2000_2010,0.15436979495423084,"Parte de menores de 12 años, promedio 2000–2010"
+pct_ninez_2023_2024,0.15087866554181137,"Parte de menores de 12 años, promedio 2023–2024"
+pct_mujeres_2023_2024,0.5434739239378381,"Parte de mujeres, promedio 2023–2024"
+pct_alarma_2011_2024,0.12343131470198647,"Parte de los casos con signos de alarma o graves, 2011–2024"
+pct_alarma_max,0.27125506072874495,Máxima parte anual de casos con signos de alarma o graves
+pct_alarma_max_anio,2013,Año de esa máxima
+pct_alarma_2023,0.11746759091493565,Parte con signos de alarma o graves en 2023
+pct_alarma_2024,0.09865540214561137,Parte con signos de alarma o graves en 2024
+pct_alarma_2021,0.08729432252014914,Parte con signos de alarma o graves en 2021
+casos_alarma_graves_2023_2024,56935,Casos con signos de alarma o graves en 2023–2024
+pct_graves_2011_2024,0.0038684004924604224,"Parte de casos graves, 2011–2024"
+grupo_mayor_alarma,Menor de 1 año,Grupo de edad con mayor parte de casos con signos de alarma o graves
+grupo_mayor_alarma_valor,0.1791117618350415,Esa parte
+grupo_menor_alarma,Adultez (30–59),Grupo de edad con menor parte
+grupo_menor_alarma_valor,0.1101400907177714,Esa parte
+pct_alarma_mujeres,0.13061992193964247,Parte con signos de alarma o graves entre mujeres
+pct_alarma_hombres,0.11504533116114163,Parte con signos de alarma o graves entre hombres
+pct_graves_2000_2009,0.004474442590626422,"Parte de graves 2000–2009 (clasificación anterior, no comparable)"
+semanas_pais_sobre_canal_2023,47,Semanas de 2023 con los casos del país sobre el canal
+semanas_pais_sobre_canal_2024,18,Semanas de 2024 con los casos del país sobre el canal
+semanas_pais_sobre_canal_2018,0,Semanas de 2018 sobre el canal
+primera_semana_sobre_canal_2023,1,Primera semana de 2023 sobre el canal nacional
+primera_semana_sobre_canal_2024,1,Primera semana de 2024 sobre el canal nacional
+pct_semanas_dep_sobre_canal_2023,0.4431438127090301,Parte de las semanas-departamento de 2023 sobre el canal
+pct_semanas_dep_sobre_canal_2018,0.0033444816053511705,Parte de las semanas-departamento de 2018 sobre el canal
+dep_mas_semanas_sobre_canal,San Martín,Departamento con más semanas sobre el canal en 2023–2024
+dep_mas_semanas_sobre_canal_n,80,Sus semanas sobre el canal en 2023–2024
+semanas_dep_sobre_canal_total,3415,"Semanas-departamento sobre el canal, 2005–2024"
+semanas_dep_evaluadas_total,24012,"Semanas-departamento evaluadas, 2005–2024"
+semanas_aviso_2023,19,"Semanas entre la primera semana sobre el canal y el pico, 2023"
+semanas_aviso_2024,13,"Semanas entre la primera semana sobre el canal y el pico, 2024"
