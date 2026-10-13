@@ -10,6 +10,8 @@ Análisis de la **vigilancia epidemiológica del dengue en el Perú**: 1,03 mill
 2024 al CDC Perú. Se hizo de punta a punta con **datos abiertos reales** del Ministerio de Salud, desde un CSV de
 108 MB hasta un tablero de Power BI para gerencia.
 
+**[Ver el tablero en Power BI →](https://app.powerbi.com/view?r=eyJrIjoiNDRmNGU1YjctNTRjYi00MjM4LWI0MjYtYTRlY2I1NTljMDM5IiwidCI6IjFlYmE0NDNmLTIzZTUtNDUzNC05MGQxLTA5NzZhYWJlODZhYyIsImMiOjR9&pageName=p1_resumen)**
+
 ![Página 1 del tablero: resumen ejecutivo del dengue en el Perú](docs/img/01_resumen.png)
 
 ## La pregunta
