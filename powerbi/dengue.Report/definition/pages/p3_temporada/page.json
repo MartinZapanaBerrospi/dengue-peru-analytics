@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "p3_temporada",
+  "displayName": "3. Temporada",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "visualInteractions": [
+    {
+      "source": "segmentador_anio",
+      "target": "tabla_pico",
+      "type": "NoFilter"
+    }
+  ]
+}

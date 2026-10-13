@@ -5,11 +5,11 @@
 ## 1. Resumen
 
 El modelo de Power BI se guarda como **proyecto PBIP con TMDL**: tablas, consultas de Power Query,
-relaciones y las 37 medidas DAX están en archivos de texto que se leen en GitHub. No se armó a mano:
+relaciones y las 38 medidas DAX están en archivos de texto que se leen en GitHub. No se armó a mano:
 lo genera [`tools/build_model.py`](../tools/build_model.py), así que es reproducible y cada cambio queda
 en el historial.
 
-**Las medidas se validaron contra Python.** En **9 677 comparaciones** (total, cada año, departamento,
+**Las medidas se validaron contra Python.** En **9 702 comparaciones** (total, cada año, departamento,
 provincia, forma clínica, grupo de edad, sexo, semana, año × departamento y año × semana) la diferencia
 relativa máxima es de 4.9e-15, que es error de punto flotante. El texto de la fecha de corte también
 coincide. El resultado completo está en [`reports/validacion_medidas.csv`](../reports/validacion_medidas.csv).
@@ -75,6 +75,7 @@ flowchart LR
 | Casos | `Participación del grupo de edad` | Parte de los casos que corresponde al grupo de edad dentro del contexto (año, territorio). |
 | Gravedad | `Casos con signos de alarma o graves` | Casos clasificados como dengue con signos de alarma o dengue grave. |
 | Gravedad | `% con signos de alarma o graves` | Parte de los casos con signos de alarma o graves. Solo comparable desde 2011: antes la clasificación era distinta. |
+| Gravedad | `% con signos o graves (clasificación actual)` | Igual que % con signos de alarma o graves, pero vacío en los años anteriores a 2011, cuando la clasificación clínica era distinta. Úselo por año. |
 | Gravedad | `Casos graves` | Casos de dengue grave. |
 | Gravedad | `% graves` | Parte de los casos que son graves. |
 | Gravedad | `Fallecidos (CDC)` | Fallecidos por dengue según la tabla oficial del CDC (2012–2024). El archivo de casos no los trae. |
@@ -125,7 +126,7 @@ no trae población por sexo ni edad. Está dicho en la descripción de la medida
   no tienen casos (Tacna, Huancavelica): ahí las sumas y los conteos dan 0 o vacío, y las razones, vacío.
 - Las pruebas de `tests/test_powerbi.py` fijan tres cosas: ninguna variable DAX usa una palabra reservada
   (`top` deja la medida en error), el TMDL versionado es exactamente el que genera el script, y las
-  9 677 comparaciones cumplen.
+  9 702 comparaciones cumplen.
 - **Refrescar un PBIP recién abierto** se hace con un solo comando ([`tools/refrescar.ps1`](../tools/refrescar.ps1)),
   que envía un refresco completo (TMSL) al modelo abierto. Antes eran 14 llamadas, una por tabla.
 

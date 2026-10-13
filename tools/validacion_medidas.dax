@@ -43,6 +43,7 @@ UNION (
     SELECTCOLUMNS ( VALUES ( dim_anio[anio] ), "contexto", "anio", "clave", FORMAT ( dim_anio[anio], "0" ), "medida", "Casos con población", "valor", FORMAT ( [Casos con población], "General Number" ) ),
     SELECTCOLUMNS ( VALUES ( dim_anio[anio] ), "contexto", "anio", "clave", FORMAT ( dim_anio[anio], "0" ), "medida", "Incidencia por 100 mil", "valor", FORMAT ( [Incidencia por 100 mil], "General Number" ) ),
     SELECTCOLUMNS ( VALUES ( dim_anio[anio] ), "contexto", "anio", "clave", FORMAT ( dim_anio[anio], "0" ), "medida", "Incidencia nacional", "valor", FORMAT ( [Incidencia nacional], "General Number" ) ),
+    SELECTCOLUMNS ( VALUES ( dim_anio[anio] ), "contexto", "anio", "clave", FORMAT ( dim_anio[anio], "0" ), "medida", "% con signos o graves (clasificación actual)", "valor", FORMAT ( [% con signos o graves (clasificación actual)], "General Number" ) ),
     SELECTCOLUMNS ( VALUES ( dim_anio[anio] ), "contexto", "anio", "clave", FORMAT ( dim_anio[anio], "0" ), "medida", "Casos año anterior", "valor", FORMAT ( [Casos año anterior], "General Number" ) ),
     SELECTCOLUMNS ( VALUES ( dim_anio[anio] ), "contexto", "anio", "clave", FORMAT ( dim_anio[anio], "0" ), "medida", "Var. interanual", "valor", FORMAT ( [Var. interanual], "General Number" ) ),
     SELECTCOLUMNS ( VALUES ( dim_anio[anio] ), "contexto", "anio", "clave", FORMAT ( dim_anio[anio], "0" ), "medida", "Semanas sobre el canal", "valor", FORMAT ( [Semanas sobre el canal], "General Number" ) ),

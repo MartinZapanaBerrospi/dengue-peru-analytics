@@ -85,6 +85,12 @@ table _Medidas
 		displayFolder: 2. Gravedad
 		lineageTag: 806700ec-0bc2-5835-9cbe-57019b0886cf
 
+	/// Igual que % con signos de alarma o graves, pero vacío en los años anteriores a 2011, cuando la clasificación clínica era distinta. Úselo por año.
+	measure '% con signos o graves (clasificación actual)' = IF ( SELECTEDVALUE ( dim_anio[forma_comparable] ) = 1, [% con signos de alarma o graves] )
+		formatString: 0.0%
+		displayFolder: 2. Gravedad
+		lineageTag: 737edd6e-da45-5026-b814-8fbcb61f21c1
+
 	/// Casos de dengue grave.
 	measure 'Casos graves' = CALCULATE ( [Casos], dim_forma_clinica[cie10] = "A97.2" )
 		formatString: #,##0

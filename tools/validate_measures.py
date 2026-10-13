@@ -34,7 +34,7 @@ INCIDENCE = ["Población (habitantes-año)", "Casos con población", "Incidencia
 GLOBAL = CASES + INCIDENCE[:3] + ["Semanas sobre el canal", "Semanas evaluadas", "% de semanas sobre el canal",
                                   "Semanas del país sobre el canal", "Casos sin edad válida",
                                   "Casos en distritos fuera del padrón", "Fallecidos (CDC)", "Casos (CDC)", "Letalidad (CDC)"]
-BY_YEAR = CASES + INCIDENCE[:4] + ["Casos año anterior", "Var. interanual", "Semanas sobre el canal", "Semanas evaluadas",
+BY_YEAR = CASES + INCIDENCE[:4] + ["% con signos o graves (clasificación actual)", "Casos año anterior", "Var. interanual", "Semanas sobre el canal", "Semanas evaluadas",
                                    "% de semanas sobre el canal", "Semanas del país sobre el canal", "Fallecidos (CDC)",
                                    "Casos (CDC)", "Letalidad (CDC)", "Casos sin edad válida"]
 BY_DEPARTMENT = CASES + INCIDENCE + ["% de los casos del país", "Semanas sobre el canal", "Semanas evaluadas",
@@ -165,6 +165,8 @@ def measures(d: Data, names: list[str], years=None, deps=None, provs=None, forms
         "Incidencia por 100 mil": incidence,
         "Incidencia nacional": national,
         "Veces la incidencia nacional": incidence / national if incidence == incidence and national == national and national else np.nan,
+        "% con signos o graves (clasificación actual)": (alarm / total if len(c) and years is not None and len(list(years)) == 1
+                                                      and list(years)[0] >= 2011 else np.nan),
         "Casos año anterior": prev_total,
         "Var. interanual": (total / prev_total - 1) if prev_total == prev_total and prev_total > 0 else np.nan,
         "% de los casos del país": total / float(select(d, years, None, None, forms, ages, sexes, weeks)["casos"].sum()) if len(c) else np.nan,

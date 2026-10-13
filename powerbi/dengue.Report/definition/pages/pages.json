@@ -1,7 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json",
   "pageOrder": [
-    "p1_resumen"
+    "p1_resumen",
+    "p2_epidemias",
+    "p3_temporada",
+    "p4_territorio",
+    "p5_pacientes",
+    "p6_brotes",
+    "p7_notas"
   ],
   "activePageName": "p1_resumen"
 }

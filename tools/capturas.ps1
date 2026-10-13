@@ -20,7 +20,7 @@ public static class Win {
 }
 '@
 
-$paginas = @("1. Resumen", "2. Modalidades", "3. Territorio", "4. Distritos", "5. Alertas", "6. Calendario", "7. Notas")
+$paginas = @("1. Resumen", "2. Epidemias", "3. Temporada", "4. Territorio", "5. Pacientes", "6. Brotes", "7. Notas")
 $proc = Get-Process PBIDesktop | Where-Object MainWindowTitle | Select-Object -First 1
 if (-not $proc) { throw "Power BI Desktop no está abierto" }
 $hwnd = $proc.MainWindowHandle
@@ -33,7 +33,7 @@ $estabaMinimizada = [Win]::IsIconic($hwnd)
 if ($estabaMinimizada) { [Win]::ShowWindow($hwnd, 4) | Out-Null }           # SW_SHOWNOACTIVATE
 # Tamaño fijo para que el lienzo entre completo; al fondo y sin activar
 [Win]::SetWindowPos($hwnd, [IntPtr]1, 0, 0, 1920, 1040, 0x0010) | Out-Null   # HWND_BOTTOM; NOACTIVATE
-Start-Sleep -Seconds 5
+Start-Sleep -Seconds 20   # el árbol de accesibilidad de Desktop tarda en aparecer tras restaurar la ventana
 
 function Capturar([string]$archivo) {
     $r = New-Object Win+RECT; [Win]::GetWindowRect($hwnd, [ref]$r) | Out-Null
@@ -50,8 +50,8 @@ for ($i = 0; $i -lt $paginas.Count; $i++) {
     # Busca la pestaña por el número de página ("3. "), que no depende de tildes ni del estado de la pestaña
     $prefijo = $nombre.Substring(0, 3)
     $pestana = $null
-    # El árbol de accesibilidad tarda en cargarse tras restaurar la ventana: hasta 5 intentos
-    for ($intento = 0; $intento -lt 5 -and -not $pestana; $intento++) {
+    # El árbol de accesibilidad tarda en cargarse tras restaurar la ventana: hasta 15 intentos
+    for ($intento = 0; $intento -lt 15 -and -not $pestana; $intento++) {
         if ($intento) { Start-Sleep -Seconds 3 }
         foreach ($e in $raiz.FindAll([System.Windows.Automation.TreeScope]::Descendants, [System.Windows.Automation.Condition]::TrueCondition)) {
             if ($e.Current.Name -and $e.Current.Name.StartsWith($prefijo) -and $e.Current.Name.Length -lt 40) {
