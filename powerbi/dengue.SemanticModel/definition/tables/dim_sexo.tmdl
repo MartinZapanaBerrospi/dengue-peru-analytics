@@ -1,0 +1,33 @@
+/// Sexo del paciente.
+table dim_sexo
+	lineageTag: ee0a4bf8-0e17-588e-b6ee-550454f763d1
+
+	column sexo_id
+		dataType: string
+		isKey
+		isHidden
+		lineageTag: 21dfe944-4141-56dc-9d92-0d76227f88af
+		summarizeBy: none
+		sourceColumn: sexo_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column sexo
+		dataType: string
+		lineageTag: c895e7f5-7eb8-59f7-9b2e-1742d6a293e2
+		summarizeBy: none
+		sourceColumn: sexo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_sexo = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "dim_sexo.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"sexo_id", type text}, {"sexo", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,61 @@
+/// Año de la vigilancia, 2000 a 2024, con marcas de comparabilidad.
+table dim_anio
+	lineageTag: 1f86035d-2975-5162-9f24-b56d6a30dfa2
+
+	/// Año
+	column anio
+		dataType: int64
+		isKey
+		formatString: 0
+		lineageTag: ac027fc7-b795-5527-850e-c9884aa22ed9
+		summarizeBy: none
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column decada
+		dataType: string
+		lineageTag: 1dbbde26-e26d-5983-9e48-b2646c97958d
+		summarizeBy: none
+		sourceColumn: decada
+
+		annotation SummarizationSetBy = Automatic
+
+	column forma_comparable
+		dataType: int64
+		isHidden
+		lineageTag: 65293b79-9a2a-579f-a11d-2626d8c6e252
+		summarizeBy: none
+		sourceColumn: forma_comparable
+
+		annotation SummarizationSetBy = Automatic
+
+	column con_poblacion
+		dataType: int64
+		isHidden
+		lineageTag: 99c34244-1f03-570a-8b86-fcb273dbe788
+		summarizeBy: none
+		sourceColumn: con_poblacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column con_poblacion_provincial
+		dataType: int64
+		isHidden
+		lineageTag: b4862f7d-5a4a-5e0f-897b-52fbfecf7ee4
+		summarizeBy: none
+		sourceColumn: con_poblacion_provincial
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_anio = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "dim_anio.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"anio", Int64.Type}, {"decada", type text}, {"forma_comparable", Int64.Type}, {"con_poblacion", Int64.Type}, {"con_poblacion_provincial", Int64.Type}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

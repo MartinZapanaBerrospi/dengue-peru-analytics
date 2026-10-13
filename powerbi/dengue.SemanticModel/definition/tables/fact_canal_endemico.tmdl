@@ -1,0 +1,80 @@
+/// Canal endémico por departamento y semana, 2005–2024: percentil 90 de los 5 años previos.
+table fact_canal_endemico
+	lineageTag: 4f8c19a0-f435-5217-a118-cb11d5004e98
+
+	column departamento_id
+		dataType: string
+		isHidden
+		lineageTag: 9e6f1c30-9ba2-5b26-814c-f34602d849c0
+		summarizeBy: none
+		sourceColumn: departamento_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column anio
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 79e28d97-c284-592d-bc76-c2e8bd22b3cd
+		summarizeBy: none
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column semana
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4c6fd90d-cb49-510b-ac3e-9d2804ef2deb
+		summarizeBy: none
+		sourceColumn: semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column casos
+		dataType: int64
+		isHidden
+		lineageTag: b1c039a0-11fd-57e2-a074-e515777776c7
+		summarizeBy: none
+		sourceColumn: casos
+
+		annotation SummarizationSetBy = Automatic
+
+	column mediana_historica
+		dataType: double
+		isHidden
+		lineageTag: 137f97c5-1b57-56e0-89b2-5e4b0c84b506
+		summarizeBy: none
+		sourceColumn: mediana_historica
+
+		annotation SummarizationSetBy = Automatic
+
+	column umbral
+		dataType: double
+		isHidden
+		lineageTag: 93090a73-ddde-532b-aded-40b46b91ad1c
+		summarizeBy: none
+		sourceColumn: umbral
+
+		annotation SummarizationSetBy = Automatic
+
+	column sobre_canal
+		dataType: int64
+		isHidden
+		lineageTag: 820b1564-a3bf-5633-8536-f3df9704d1b1
+		summarizeBy: none
+		sourceColumn: sobre_canal
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_canal_endemico = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "fact_canal_endemico.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"departamento_id", type text}, {"anio", Int64.Type}, {"semana", Int64.Type}, {"casos", Int64.Type}, {"mediana_historica", type number}, {"umbral", type number}, {"sobre_canal", Int64.Type}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

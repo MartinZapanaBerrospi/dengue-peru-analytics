@@ -1,0 +1,43 @@
+/// Población proyectada de los 25 departamentos, 2013–2024 (MININTER), con Lima sumada.
+table fact_poblacion_departamento
+	lineageTag: 55498b29-1bf2-5704-b0af-07f743abd25a
+
+	column departamento_id
+		dataType: string
+		isHidden
+		lineageTag: c30a79cc-a41d-50ec-9399-4a3f28bdc81e
+		summarizeBy: none
+		sourceColumn: departamento_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column anio
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3fc53a03-3d2e-5e38-b7b8-65753810c840
+		summarizeBy: none
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column poblacion
+		dataType: int64
+		isHidden
+		lineageTag: eb5b7adb-cfd9-5b4d-8c18-4b72a827924e
+		summarizeBy: none
+		sourceColumn: poblacion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_poblacion_departamento = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "fact_poblacion_departamento.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"departamento_id", type text}, {"anio", Int64.Type}, {"poblacion", Int64.Type}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

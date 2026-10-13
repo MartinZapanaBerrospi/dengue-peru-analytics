@@ -1,0 +1,43 @@
+/// Población proyectada de las provincias con casos, 2016–2024 (MININTER).
+table fact_poblacion_provincia
+	lineageTag: 0b6bf6a9-c296-56f6-adfa-44d17b06bbd5
+
+	column provincia_id
+		dataType: string
+		isHidden
+		lineageTag: 9929f0dc-4fdd-59db-9f5f-f2c37445a7d4
+		summarizeBy: none
+		sourceColumn: provincia_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column anio
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d5a6d9ba-e221-54be-b78b-f9f150c2908b
+		summarizeBy: none
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column poblacion
+		dataType: int64
+		isHidden
+		lineageTag: 042c5a01-8c7d-5bd4-b4b7-8605730eb872
+		summarizeBy: none
+		sourceColumn: poblacion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_poblacion_provincia = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "fact_poblacion_provincia.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"provincia_id", type text}, {"anio", Int64.Type}, {"poblacion", Int64.Type}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

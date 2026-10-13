@@ -1,0 +1,43 @@
+/// Casos y fallecidos oficiales del CDC por año, 2012–2024 (sala situacional). El archivo de casos no trae fallecidos.
+table fact_cdc_anual
+	lineageTag: 4a8e52af-dfbe-53bd-93da-bcd26e1c0882
+
+	column anio
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2a75ebba-1442-54f7-9b6c-abe8f57618d4
+		summarizeBy: none
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column casos_cdc
+		dataType: int64
+		isHidden
+		lineageTag: b82ea019-86ab-521b-9479-0a1c7cc7563f
+		summarizeBy: none
+		sourceColumn: casos_cdc
+
+		annotation SummarizationSetBy = Automatic
+
+	column fallecidos_cdc
+		dataType: int64
+		isHidden
+		lineageTag: 7f404ee1-dcc9-5642-93e6-9dd7503b6e71
+		summarizeBy: none
+		sourceColumn: fallecidos_cdc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_cdc_anual = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "fact_cdc_anual.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"anio", Int64.Type}, {"casos_cdc", Int64.Type}, {"fallecidos_cdc", Int64.Type}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

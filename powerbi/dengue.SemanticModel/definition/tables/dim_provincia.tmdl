@@ -1,0 +1,51 @@
+/// Las 124 provincias con casos. provincia_unica agrega el departamento si el nombre se repite.
+table dim_provincia
+	lineageTag: 9e608fe1-1169-5d53-8ea3-f9f3ea52b5a9
+
+	column provincia_id
+		dataType: string
+		isKey
+		isHidden
+		lineageTag: db8cc3b1-2fce-5a85-b592-928c3a9fa5ef
+		summarizeBy: none
+		sourceColumn: provincia_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column provincia
+		dataType: string
+		lineageTag: dc36175c-ce90-528f-9bac-62b85db67be0
+		summarizeBy: none
+		sourceColumn: provincia
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Nombre para mostrar; único en todo el modelo
+	column provincia_unica
+		dataType: string
+		lineageTag: 5e76863a-0714-585d-a41c-e2a55ddccf51
+		summarizeBy: none
+		sourceColumn: provincia_unica
+
+		annotation SummarizationSetBy = Automatic
+
+	column departamento_id
+		dataType: string
+		isHidden
+		lineageTag: f869456c-3d2c-5045-9a79-71cfbb418e55
+		summarizeBy: none
+		sourceColumn: departamento_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_provincia = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "dim_provincia.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"provincia_id", type text}, {"provincia", type text}, {"provincia_unica", type text}, {"departamento_id", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

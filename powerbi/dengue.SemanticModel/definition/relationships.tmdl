@@ -1,0 +1,72 @@
+relationship f0496e77-44fd-5105-8ae3-c24a58a7a1f6
+	fromColumn: fact_caso.anio
+	toColumn: dim_anio.anio
+
+relationship f11d4f1a-d5bc-519b-8f9a-b85887d11916
+	fromColumn: fact_caso.semana
+	toColumn: dim_semana.semana
+
+relationship 0ffa16e8-a92f-5f24-91ef-5ee13d30f0e2
+	fromColumn: fact_caso.ubigeo
+	toColumn: dim_distrito.ubigeo
+
+relationship ab0f5aa6-7015-523e-af0f-662da9c53292
+	fromColumn: fact_caso.forma_clinica_id
+	toColumn: dim_forma_clinica.forma_clinica_id
+
+relationship 661a9e88-ed4c-55ce-8276-f49d5e967da1
+	fromColumn: fact_caso.grupo_edad_id
+	toColumn: dim_grupo_edad.grupo_edad_id
+
+relationship 9074ef3e-4c9b-5b53-b5cf-e17ebc41411a
+	fromColumn: fact_caso.sexo_id
+	toColumn: dim_sexo.sexo_id
+
+relationship 7d3cd61f-4ab0-564a-8fa5-1f1a0f99e636
+	fromColumn: dim_distrito.provincia_id
+	toColumn: dim_provincia.provincia_id
+
+relationship 53fe6e33-8733-5fa7-8b3b-c155afeeb8c3
+	fromColumn: dim_provincia.departamento_id
+	toColumn: dim_departamento.departamento_id
+
+relationship 027e535a-c55c-5028-8e7b-dbe554c68e57
+	fromColumn: fact_poblacion_departamento.departamento_id
+	toColumn: dim_departamento.departamento_id
+
+relationship f949aed6-a9e4-50dc-ad7f-aa5304c22d98
+	fromColumn: fact_poblacion_departamento.anio
+	toColumn: dim_anio.anio
+
+relationship 494ae202-e59b-5d0c-a6c4-ab9fa7544793
+	fromColumn: fact_poblacion_provincia.provincia_id
+	toColumn: dim_provincia.provincia_id
+
+relationship 4024f466-f51a-5c09-b5c5-517eaef2cd2f
+	fromColumn: fact_poblacion_provincia.anio
+	toColumn: dim_anio.anio
+
+relationship 7703d0d4-25dd-5253-a208-dd79f398509d
+	fromColumn: fact_canal_endemico.departamento_id
+	toColumn: dim_departamento.departamento_id
+
+relationship b4408ec5-e289-51b0-ad4e-84625b9312b1
+	fromColumn: fact_canal_endemico.anio
+	toColumn: dim_anio.anio
+
+relationship 277e77e8-ccd6-57f7-bfe4-16102abff73c
+	fromColumn: fact_canal_endemico.semana
+	toColumn: dim_semana.semana
+
+relationship 09d21aa1-ee35-5917-91f0-ae9cbeaedad9
+	fromColumn: fact_canal_nacional.anio
+	toColumn: dim_anio.anio
+
+relationship 5bb5a3ff-2db1-5537-af90-8c4599e630fb
+	fromColumn: fact_canal_nacional.semana
+	toColumn: dim_semana.semana
+
+relationship c0d9e9d0-e6c1-5296-a90f-368452c13205
+	fromColumn: fact_cdc_anual.anio
+	toColumn: dim_anio.anio
+
