@@ -71,7 +71,7 @@ def main() -> None:
         "$schema": "https://developer.microsoft.com/json-schemas/fabric/pbip/pbipProperties/1.0.0/schema.json",
         "version": "1.0",
         "artifacts": [{"report": {"path": f"{NAME}.Report"}}],
-        "settings": {"enableAutoRecovery": True},
+        "settings": {"enableAutoRecovery": False},
     })
     write_json(REPORT / ".platform", {
         "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
