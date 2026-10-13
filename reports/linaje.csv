@@ -1,0 +1,5 @@
+paso,descripcion,filas,casos,columnas,nota
+1. raw,CSV del portal,1029421,1029421,14.0,Tal como se publica
+2. staging,"Casos con tipos, claves y edad en años",1029421,1029421,19.0,Reglas de campo: 0 casos excluidos
+3. curated,fact_caso (agregado),332850,1029421,9.0,Un caso por fila pasa a semana × distrito × forma × edad × sexo: mismos casos
+3a. marca,Casos sin edad válida,14,14,,"Subconjunto, no exclusión"

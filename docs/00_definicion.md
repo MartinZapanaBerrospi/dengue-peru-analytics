@@ -48,7 +48,7 @@ fenómeno de El Niño, serotipos, urbanización): los datos no las traen.
 | Parte de casos con signos de alarma o graves | (Con signos de alarma + graves) / casos, desde 2011 | Calculada |
 | Distritos con casos | Distritos distintos con al menos un caso en el año (lugar probable de infección) | Calculada |
 | Mediana de edad | Mediana de la edad en años, casos con edad válida | Calculada |
-| Semanas sobre el canal endémico | Semanas de un departamento con más casos que el percentil 75 de los 5 años previos | Calculada |
+| Semanas sobre el canal endémico | Semanas de un departamento con más casos que el percentil 90 de los 5 años previos (con al menos 10 casos) | Calculada |
 | Letalidad | Fallecidos / casos | Tabla oficial del CDC (el archivo no trae fallecidos) |
 
 Las tasas se calculan sumando casos y población y dividiendo después: **nunca se promedian
