@@ -13,9 +13,9 @@ Power BI para gerencia.
 | Fase | Estado | Documento |
 |---|---|---|
 | 0. Definición | Cerrada | [00_definicion.md](docs/00_definicion.md) |
-| 1. Adquisición | En curso | — |
-| 2. Calidad | Pendiente | — |
-| 3. Transformación | Pendiente | — |
+| 1. Adquisición | Cerrada | [01_adquisicion.md](docs/01_adquisicion.md) |
+| 2. Calidad | Cerrada | [02_calidad.md](docs/02_calidad.md) |
+| 3. Transformación | En curso | — |
 | 4. Modelado | Pendiente | — |
 | 5. Análisis | Pendiente | — |
 | 6. Tablero | Pendiente | — |

@@ -1,0 +1,43 @@
+validacion,anio,medida,oficial,calculado,tolerancia_pct,severidad,detalle,diferencia_pct,resultado
+V1,2012,casos de dengue,28505.0,28505.0,0.05,bloqueante,"tabla de casos, fallecidos y letalidad de la sala situacional, SE 33 de 2026",0.0,cumple
+V1,2013,casos de dengue,13092.0,13091.0,0.05,bloqueante,"tabla de casos, fallecidos y letalidad de la sala situacional, SE 33 de 2026",-0.008,cumple
+V1,2014,casos de dengue,17234.0,17234.0,0.05,bloqueante,"tabla de casos, fallecidos y letalidad de la sala situacional, SE 33 de 2026",0.0,cumple
+V1,2015,casos de dengue,35816.0,35816.0,0.05,bloqueante,"tabla de casos, fallecidos y letalidad de la sala situacional, SE 33 de 2026",0.0,cumple
+V1,2016,casos de dengue,25160.0,25160.0,0.05,bloqueante,"tabla de casos, fallecidos y letalidad de la sala situacional, SE 33 de 2026",0.0,cumple
+V1,2017,casos de dengue,68290.0,68290.0,0.05,bloqueante,"tabla de casos, fallecidos y letalidad de la sala situacional, SE 33 de 2026",0.0,cumple
+V1,2018,casos de dengue,4698.0,4698.0,0.05,bloqueante,"tabla de casos, fallecidos y letalidad de la sala situacional, SE 33 de 2026",0.0,cumple
+V1,2019,casos de dengue,15287.0,15287.0,0.05,bloqueante,"tabla de casos, fallecidos y letalidad de la sala situacional, SE 33 de 2026",0.0,cumple
+V1,2020,casos de dengue,47932.0,47932.0,0.05,bloqueante,"tabla de casos, fallecidos y letalidad de la sala situacional, SE 33 de 2026",0.0,cumple
+V1,2021,casos de dengue,44791.0,44791.0,0.05,bloqueante,"tabla de casos, fallecidos y letalidad de la sala situacional, SE 33 de 2026",0.0,cumple
+V1,2022,casos de dengue,63217.0,63217.0,0.05,bloqueante,"tabla de casos, fallecidos y letalidad de la sala situacional, SE 33 de 2026",0.0,cumple
+V1,2023,casos de dengue,256641.0,256641.0,0.05,bloqueante,"tabla de casos, fallecidos y letalidad de la sala situacional, SE 33 de 2026",0.0,cumple
+V1,2024,casos de dengue,271531.0,271531.0,0.05,bloqueante,"tabla de casos, fallecidos y letalidad de la sala situacional, SE 33 de 2026",0.0,cumple
+V2-casos,2023,casos de dengue,273684.0,256641.0,,info,la alerta es de principios de 2024; el CDC revisa la serie y el archivo coincide con la vigente,-6.227,info
+V2-forma,2023,parte de casos sin signos de alarma,88.46626035866181,88.25324090850644,3.0,bloqueante,"reparto por forma clínica, en % de los casos del año",-0.241,cumple
+V2-forma,2023,parte de casos con signos de alarma,11.14862396047997,11.350485697920442,3.0,bloqueante,"reparto por forma clínica, en % de los casos del año",1.811,cumple
+V2-forma,2023,parte de casos graves,0.38511568085821607,0.3962733935731235,3.0,bloqueante,"reparto por forma clínica, en % de los casos del año",2.897,cumple
+V3,2023,población nacional,33834095.685498826,33725844.0,1.0,bloqueante,"casos / incidencia oficial (808,9 por 100 mil) frente a la proyección del MININTER",-0.32,cumple
+V4-departamentos,2013,población de los departamentos,30475144.0,30475144.0,0.01,bloqueante,suma de los departamentos,0.0,cumple
+V4-provincias,2013,población de las provincias,30475144.0,20822695.0,0.01,alerta,suma de las provincias,-31.673,alerta
+V4-departamentos,2014,población de los departamentos,30814175.0,30814175.0,0.01,bloqueante,suma de los departamentos,0.0,cumple
+V4-provincias,2014,población de las provincias,30814175.0,29869272.0,0.01,alerta,suma de las provincias,-3.066,alerta
+V4-departamentos,2015,población de los departamentos,31151643.0,31151643.0,0.01,bloqueante,suma de los departamentos,0.0,cumple
+V4-provincias,2015,población de las provincias,31151643.0,31072325.0,0.01,alerta,suma de las provincias,-0.255,alerta
+V4-departamentos,2016,población de los departamentos,31488625.0,31488625.0,0.01,bloqueante,suma de los departamentos,0.0,cumple
+V4-provincias,2016,población de las provincias,31488625.0,31488625.0,0.01,bloqueante,suma de las provincias,0.0,cumple
+V4-departamentos,2017,población de los departamentos,31237385.0,31237385.0,0.01,bloqueante,suma de los departamentos,0.0,cumple
+V4-provincias,2017,población de las provincias,31237385.0,31237385.0,0.01,bloqueante,suma de las provincias,0.0,cumple
+V4-departamentos,2018,población de los departamentos,31562130.0,31562130.0,0.01,bloqueante,suma de los departamentos,0.0,cumple
+V4-provincias,2018,población de las provincias,31562130.0,31562130.0,0.01,bloqueante,suma de las provincias,0.0,cumple
+V4-departamentos,2019,población de los departamentos,32131400.0,32131400.0,0.01,bloqueante,suma de los departamentos,0.0,cumple
+V4-provincias,2019,población de las provincias,32131400.0,32131400.0,0.01,bloqueante,suma de las provincias,0.0,cumple
+V4-departamentos,2020,población de los departamentos,32625948.0,32625948.0,0.01,bloqueante,suma de los departamentos,0.0,cumple
+V4-provincias,2020,población de las provincias,32625948.0,32625948.0,0.01,bloqueante,suma de las provincias,0.0,cumple
+V4-departamentos,2021,población de los departamentos,33035304.0,33035304.0,0.01,bloqueante,suma de los departamentos,0.0,cumple
+V4-provincias,2021,población de las provincias,33035304.0,33035304.0,0.01,bloqueante,suma de las provincias,0.0,cumple
+V4-departamentos,2022,población de los departamentos,33396698.0,33396698.0,0.01,bloqueante,suma de los departamentos,0.0,cumple
+V4-provincias,2022,población de las provincias,33396698.0,33396698.0,0.01,bloqueante,suma de las provincias,0.0,cumple
+V4-departamentos,2023,población de los departamentos,33725844.0,33725844.0,0.01,bloqueante,suma de los departamentos,0.0,cumple
+V4-provincias,2023,población de las provincias,33725844.0,33725844.0,0.01,bloqueante,suma de las provincias,0.0,cumple
+V4-departamentos,2024,población de los departamentos,34038457.0,34038457.0,0.01,bloqueante,suma de los departamentos,0.0,cumple
+V4-provincias,2024,población de las provincias,34038457.0,34038457.0,0.01,bloqueante,suma de las provincias,0.0,cumple
