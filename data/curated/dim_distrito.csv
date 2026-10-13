@@ -1,0 +1,663 @@
+ubigeo,distrito,distrito_unico,provincia_id,departamento_id,distrito_en_padron
+010101,Chachapoyas,Chachapoyas,0101,01,1
+010103,Balsas,Balsas,0101,01,1
+010201,Bagua,Bagua,0102,01,1
+010202,Aramango,Aramango,0102,01,1
+010203,Copallin,Copallin,0102,01,1
+010204,El Parco,El Parco,0102,01,1
+010205,Imaza,Imaza,0102,01,1
+010206,La Peca,La Peca,0102,01,1
+010303,Churuja,Churuja,0103,01,1
+010306,Florida,Florida,0103,01,1
+010307,Jazan,Jazan,0103,01,1
+010309,San Carlos,San Carlos,0103,01,1
+010312,Yambrasbamba,Yambrasbamba,0103,01,1
+010401,Nieva,Nieva,0104,01,1
+010402,El Cenepa,El Cenepa,0104,01,1
+010403,Rio Santiago,Rio Santiago,0104,01,1
+010605,Limabamba,Limabamba,0106,01,1
+010612,Vista Alegre,Vista Alegre (Rodriguez de Mendoza),0106,01,1
+010701,Bagua Grande,Bagua Grande,0107,01,1
+010702,Cajaruro,Cajaruro,0107,01,1
+010703,Cumba,Cumba,0107,01,1
+010704,El Milagro,El Milagro,0107,01,1
+010705,Jamalca,Jamalca,0107,01,1
+010706,Lonya Grande,Lonya Grande,0107,01,1
+010707,Yamon,Yamon,0107,01,1
+020101,Huaraz,Huaraz,0201,02,1
+020110,Pariacoto,Pariacoto,0201,02,1
+020801,Casma,Casma,0208,02,1
+020802,Buena Vista Alta,Buena Vista Alta,0208,02,1
+020803,Comandante Noel,Comandante Noel,0208,02,1
+020804,Yautan,Yautan,0208,02,1
+021101,Huarmey,Huarmey,0211,02,1
+021103,Culebras,Culebras,0211,02,1
+021202,Huallanca,Huallanca,0212,02,1
+021501,Cabana,Cabana,0215,02,1
+021801,Chimbote,Chimbote,0218,02,1
+021803,Coishco,Coishco,0218,02,1
+021805,Moro,Moro,0218,02,1
+021806,Nepe�a,Nepe�a,0218,02,1
+021807,Samanco,Samanco,0218,02,1
+021808,Santa,Santa,0218,02,1
+021809,Nuevo Chimbote,Nuevo Chimbote,0218,02,1
+030101,Abancay,Abancay,0301,03,1
+030102,Chacoche,Chacoche,0301,03,1
+030405,Colcabamba,Colcabamba,0304,03,1
+030415,Tintay,Tintay,0304,03,1
+040101,Arequipa,Arequipa,0401,04,1
+040302,Acari,Acari,0403,04,1
+040303,Atico,Atico,0403,04,1
+040305,Bella Union,Bella Union,0403,04,1
+040313,Yauca,Yauca,0403,04,1
+040702,Cocachacra,Cocachacra,0407,04,1
+050101,Ayacucho,Ayacucho,0501,05,1
+050102,Acocro,Acocro,0501,05,1
+050110,San Juan Bautista,San Juan Bautista (Huamanga),0501,05,1
+050115,Jesus Nazareno,Jesus Nazareno,0501,05,1
+050201,Cangallo,Cangallo,0502,05,1
+050401,Huanta,Huanta,0504,05,1
+050407,Sivia,Sivia,0504,05,1
+050408,Llochegua,Llochegua,0504,05,1
+050409,Canayre,Canayre,0504,05,1
+050501,San Miguel,San Miguel (La Mar),0505,05,1
+050502,Anco,Anco,0505,05,1
+050503,Ayna,Ayna,0505,05,1
+050505,Chungui,Chungui,0505,05,1
+050507,Santa Rosa,Santa Rosa (La Mar),0505,05,1
+050509,Samugari,Samugari,0505,05,1
+050510,Anchihuay,Anchihuay,0505,05,1
+050512,Union Progreso,Union Progreso,0505,05,0
+050513,Rio Magdalena,Rio Magdalena,0505,05,0
+050601,Puquio,Puquio,0506,05,1
+050701,Coracora,Coracora,0507,05,1
+050808,San Javier de Alpabamba,San Javier de Alpabamba,0508,05,1
+050902,Belen,Belen (Sucre),0509,05,1
+050906,Morcolla,Morcolla,0509,05,1
+060101,Cajamarca,Cajamarca,0601,06,1
+060102,Asuncion,Asuncion,0601,06,1
+060109,Magdalena,Magdalena,0601,06,1
+060203,Condebamba,Condebamba,0602,06,1
+060204,Sitacocha,Sitacocha,0602,06,1
+060301,Celendin,Celendin,0603,06,1
+060311,Utco,Utco,0603,06,1
+060401,Chota,Chota,0604,06,1
+060407,Cochabamba,Cochabamba (Chota),0604,06,1
+060409,Huambos,Huambos,0604,06,1
+060411,Llama,Llama,0604,06,1
+060412,Miracosta,Miracosta,0604,06,1
+060415,Querocoto,Querocoto,0604,06,1
+060501,Contumaza,Contumaza,0605,06,1
+060502,Chilete,Chilete,0605,06,1
+060507,Tantarica,Tantarica,0605,06,1
+060508,Yonan,Yonan,0605,06,1
+060601,Cutervo,Cutervo,0606,06,1
+060602,Callayuc,Callayuc,0606,06,1
+060603,Choros,Choros,0606,06,1
+060606,Pimpingos,Pimpingos,0606,06,1
+060607,Querocotillo,Querocotillo,0606,06,1
+060613,Santo Tomas,Santo Tomas,0606,06,1
+060703,Hualgayoc,Hualgayoc,0607,06,1
+060801,Jaen,Jaen,0608,06,1
+060802,Bellavista,Bellavista (Jaen),0608,06,1
+060803,Chontali,Chontali,0608,06,1
+060804,Colasay,Colasay,0608,06,1
+060805,Huabal,Huabal,0608,06,1
+060806,Las Pirias,Las Pirias,0608,06,1
+060807,Pomahuaca,Pomahuaca,0608,06,1
+060808,Pucara,Pucara,0608,06,1
+060809,Sallique,Sallique,0608,06,1
+060810,San Felipe,San Felipe,0608,06,1
+060811,San Jose del Alto,San Jose del Alto,0608,06,1
+060812,Santa Rosa,Santa Rosa (Jaen),0608,06,1
+060901,San Ignacio,San Ignacio,0609,06,1
+060902,Chirinos,Chirinos,0609,06,1
+060903,Huarango,Huarango,0609,06,1
+060904,La Coipa,La Coipa,0609,06,1
+060905,Namballe,Namballe,0609,06,1
+060906,San Jose de Lourdes,San Jose de Lourdes,0609,06,1
+060907,Tabaconas,Tabaconas,0609,06,1
+061101,San Miguel,San Miguel (San Miguel),0611,06,1
+061102,Bolivar,Bolivar,0611,06,1
+061106,La Florida,La Florida,0611,06,1
+061108,Nanchoc,Nanchoc,0611,06,1
+061110,San Gregorio,San Gregorio,0611,06,1
+061202,San Bernardino,San Bernardino,0612,06,1
+061203,San Luis,San Luis (San Pablo),0612,06,1
+061303,Catache,Catache,0613,06,1
+061305,La Esperanza,La Esperanza (Santa Cruz),0613,06,1
+061306,Ninabamba,Ninabamba,0613,06,1
+070101,Callao,Callao,0701,07,1
+070102,Bellavista,Bellavista (Callao),0701,07,1
+070103,Carmen de la Legua-reynoso,Carmen de la Legua-reynoso,0701,07,1
+070104,La Perla,La Perla,0701,07,1
+070105,La Punta,La Punta,0701,07,1
+070106,Ventanilla,Ventanilla,0701,07,1
+070107,Mi Peru,Mi Peru,0701,07,1
+080101,Cusco,Cusco,0801,08,1
+080408,Yanatile,Yanatile,0804,08,1
+080901,Santa Ana,Santa Ana,0809,08,1
+080902,Echarate,Echarate,0809,08,1
+080903,Huayopata,Huayopata,0809,08,1
+080904,Maranura,Maranura,0809,08,1
+080906,Quellouno,Quellouno,0809,08,1
+080907,Kimbiri,Kimbiri,0809,08,1
+080908,Santa Teresa,Santa Teresa,0809,08,1
+080909,Vilcabamba,Vilcabamba,0809,08,1
+080910,Pichari,Pichari,0809,08,1
+080912,Villa Virgen,Villa Virgen,0809,08,1
+080913,Villa Kintiarina,Villa Kintiarina,0809,08,1
+080914,Megantoni,Megantoni,0809,08,1
+080915,Kumpirushiato,Kumpirushiato,0809,08,0
+080916,Cielo Punco,Cielo Punco,0809,08,0
+080917,Manitea,Manitea,0809,08,0
+080918,Union Ashaninka,Union Ashaninka,0809,08,0
+081106,Kos�ipata,Kos�ipata,0811,08,1
+081203,Camanti,Camanti,0812,08,1
+081304,Machupicchu,Machupicchu,0813,08,1
+100101,Huanuco,Huanuco,1001,10,1
+100102,Amarilis,Amarilis,1001,10,1
+100103,Chinchao,Chinchao,1001,10,1
+100109,Santa Maria del Valle,Santa Maria del Valle,1001,10,1
+100111,Pillco Marca,Pillco Marca,1001,10,1
+100201,Ambo,Ambo,1002,10,1
+100207,San Rafael,San Rafael (Ambo),1002,10,1
+100208,Tomay-kichwa,Tomay-kichwa,1002,10,1
+100311,Marias,Marias,1003,10,1
+100401,Huacaybamba,Huacaybamba,1004,10,1
+100403,Cochabamba,Cochabamba (Huacaybamba),1004,10,1
+100507,Monzon,Monzon,1005,10,1
+100508,Punchao,Punchao,1005,10,1
+100601,Rupa-rupa,Rupa-rupa,1006,10,1
+100602,Daniel Alomia Robles,Daniel Alomia Robles,1006,10,1
+100603,Hermilio Valdizan,Hermilio Valdizan,1006,10,1
+100604,Jose Crespo y Castillo,Jose Crespo y Castillo,1006,10,1
+100605,Luyando,Luyando,1006,10,1
+100606,Mariano Damaso Beraun,Mariano Damaso Beraun,1006,10,1
+100607,Pucayacu,Pucayacu,1006,10,1
+100608,Castillo Grande,Castillo Grande,1006,10,1
+100609,Pueblo Nuevo,Pueblo Nuevo (Leoncio Prado),1006,10,1
+100610,Santo Domingo de Anda,Santo Domingo de Anda,1006,10,1
+100702,Cholon,Cholon,1007,10,1
+100704,La Morada,La Morada,1007,10,1
+100705,Santa Rosa de Alto Yanajanca,Santa Rosa de Alto Yanajanca,1007,10,1
+100801,Panao,Panao,1008,10,1
+100802,Chaglla,Chaglla,1008,10,1
+100804,Umari,Umari,1008,10,1
+100901,Puerto Inca,Puerto Inca,1009,10,1
+100902,Codo del Pozuzo,Codo del Pozuzo,1009,10,1
+100903,Honoria,Honoria,1009,10,1
+100904,Tournavista,Tournavista,1009,10,1
+100905,Yuyapichis,Yuyapichis,1009,10,1
+110101,Ica,Ica,1101,11,1
+110102,La Tingui�a,La Tingui�a,1101,11,1
+110103,Los Aquijes,Los Aquijes,1101,11,1
+110104,Ocucaje,Ocucaje,1101,11,1
+110105,Pachacutec,Pachacutec,1101,11,1
+110106,Parcona,Parcona,1101,11,1
+110107,Pueblo Nuevo,Pueblo Nuevo (Ica),1101,11,1
+110108,Salas,Salas (Ica),1101,11,1
+110109,San Jose de los Molinos,San Jose de los Molinos,1101,11,1
+110110,San Juan Bautista,San Juan Bautista (Ica),1101,11,1
+110111,Santiago,Santiago,1101,11,1
+110112,Subtanjalla,Subtanjalla,1101,11,1
+110113,Tate,Tate,1101,11,1
+110114,Yauca del Rosario,Yauca del Rosario,1101,11,1
+110201,Chincha Alta,Chincha Alta,1102,11,1
+110202,Alto Laran,Alto Laran,1102,11,1
+110204,Chincha Baja,Chincha Baja,1102,11,1
+110205,El Carmen,El Carmen,1102,11,1
+110206,Grocio Prado,Grocio Prado,1102,11,1
+110207,Pueblo Nuevo,Pueblo Nuevo (Chincha),1102,11,1
+110210,Sunampe,Sunampe,1102,11,1
+110211,Tambo de Mora,Tambo de Mora,1102,11,1
+110301,Nazca,Nazca,1103,11,1
+110302,Changuillo,Changuillo,1103,11,1
+110303,El Ingenio,El Ingenio,1103,11,1
+110304,Marcona,Marcona,1103,11,1
+110305,Vista Alegre,Vista Alegre (Nazca),1103,11,1
+110401,Palpa,Palpa,1104,11,1
+110402,Llipata,Llipata,1104,11,1
+110403,Rio Grande,Rio Grande,1104,11,1
+110404,Santa Cruz,Santa Cruz (Palpa),1104,11,1
+110501,Pisco,Pisco,1105,11,1
+110502,Huancano,Huancano,1105,11,1
+110503,Humay,Humay,1105,11,1
+110504,Independencia,Independencia (Pisco),1105,11,1
+110505,Paracas,Paracas,1105,11,1
+110506,San Andres,San Andres,1105,11,1
+110507,San Clemente,San Clemente,1105,11,1
+110508,Tupac Amaru Inca,Tupac Amaru Inca,1105,11,1
+120101,Huancayo,Huancayo,1201,12,1
+120107,Chilca,Chilca (Huancayo),1201,12,1
+120133,Sapallanga,Sapallanga,1201,12,1
+120301,Chanchamayo,Chanchamayo,1203,12,1
+120302,Perene,Perene,1203,12,1
+120303,Pichanaqui,Pichanaqui,1203,12,1
+120304,San Luis de Shuaro,San Luis de Shuaro,1203,12,1
+120305,San Ramon,San Ramon,1203,12,1
+120306,Vitoc,Vitoc,1203,12,1
+120501,Junin,Junin,1205,12,1
+120601,Satipo,Satipo,1206,12,1
+120602,Coviriali,Coviriali,1206,12,1
+120603,Llaylla,Llaylla,1206,12,1
+120604,Mazamari,Mazamari,1206,12,1
+120605,Pampa Hermosa,Pampa Hermosa (Satipo),1206,12,1
+120606,Pangoa,Pangoa,1206,12,1
+120607,Rio Negro,Rio Negro,1206,12,1
+120608,Rio Tambo,Rio Tambo,1206,12,1
+120609,Vizcatan del Ene,Vizcatan del Ene,1206,12,1
+130101,Trujillo,Trujillo,1301,13,1
+130102,El Porvenir,El Porvenir (Trujillo),1301,13,1
+130103,Florencia de Mora,Florencia de Mora,1301,13,1
+130104,Huanchaco,Huanchaco,1301,13,1
+130105,La Esperanza,La Esperanza (Trujillo),1301,13,1
+130106,Laredo,Laredo,1301,13,1
+130107,Moche,Moche,1301,13,1
+130108,Poroto,Poroto,1301,13,1
+130109,Salaverry,Salaverry,1301,13,1
+130110,Simbal,Simbal,1301,13,1
+130111,Victor Larco Herrera,Victor Larco Herrera,1301,13,1
+130112,Alto Trujillo,Alto Trujillo,1301,13,0
+130201,Ascope,Ascope,1302,13,1
+130202,Chicama,Chicama,1302,13,1
+130203,Chocope,Chocope,1302,13,1
+130204,Magdalena de Cao,Magdalena de Cao,1302,13,1
+130205,Paijan,Paijan,1302,13,1
+130206,Razuri,Razuri,1302,13,1
+130207,Santiago de Cao,Santiago de Cao,1302,13,1
+130208,Casa Grande,Casa Grande,1302,13,1
+130302,Bambamarca,Bambamarca,1303,13,1
+130304,Longotea,Longotea,1303,13,1
+130305,Uchumarca,Uchumarca,1303,13,1
+130401,Chepen,Chepen,1304,13,1
+130402,Pacanga,Pacanga,1304,13,1
+130403,Pueblo Nuevo,Pueblo Nuevo (Chepen),1304,13,1
+130601,Otuzco,Otuzco,1306,13,1
+130701,San Pedro de Lloc,San Pedro de Lloc,1307,13,1
+130702,Guadalupe,Guadalupe,1307,13,1
+130703,Jequetepeque,Jequetepeque,1307,13,1
+130704,Pacasmayo,Pacasmayo,1307,13,1
+130705,San Jose,San Jose (Pacasmayo),1307,13,1
+130809,Pataz,Pataz,1308,13,1
+130901,Huamachuco,Huamachuco,1309,13,1
+130903,Cochorco,Cochorco,1309,13,1
+130906,Sanagoran,Sanagoran,1309,13,1
+130908,Sartimbamba,Sartimbamba,1309,13,1
+131005,Mollepata,Mollepata,1310,13,1
+131101,Cascas,Cascas,1311,13,1
+131102,Lucma,Lucma,1311,13,1
+131103,Marmot,Marmot,1311,13,1
+131201,Viru,Viru,1312,13,1
+131202,Chao,Chao,1312,13,1
+131203,Guadalupito,Guadalupito,1312,13,1
+140101,Chiclayo,Chiclayo,1401,14,1
+140102,Chongoyape,Chongoyape,1401,14,1
+140103,Eten,Eten,1401,14,1
+140104,Eten Puerto,Eten Puerto,1401,14,1
+140105,Jose Leonardo Ortiz,Jose Leonardo Ortiz,1401,14,1
+140106,La Victoria,La Victoria (Chiclayo),1401,14,1
+140107,Lagunas,Lagunas (Chiclayo),1401,14,1
+140108,Monsefu,Monsefu,1401,14,1
+140109,Nueva Arica,Nueva Arica,1401,14,1
+140110,Oyotun,Oyotun,1401,14,1
+140111,Picsi,Picsi,1401,14,1
+140112,Pimentel,Pimentel,1401,14,1
+140113,Reque,Reque,1401,14,1
+140114,Santa Rosa,Santa Rosa (Chiclayo),1401,14,1
+140115,Sa�a,Sa�a,1401,14,1
+140116,Cayalti,Cayalti,1401,14,1
+140117,Patapo,Patapo,1401,14,1
+140118,Pomalca,Pomalca,1401,14,1
+140119,Pucala,Pucala,1401,14,1
+140120,Tuman,Tuman,1401,14,1
+140201,Ferre�afe,Ferre�afe,1402,14,1
+140202,Ca�aris,Ca�aris,1402,14,1
+140204,Manuel Antonio Mesones Muro,Manuel Antonio Mesones Muro,1402,14,1
+140205,Pitipo,Pitipo,1402,14,1
+140206,Pueblo Nuevo,Pueblo Nuevo (Ferre�afe),1402,14,1
+140301,Lambayeque,Lambayeque,1403,14,1
+140302,Chochope,Chochope,1403,14,1
+140303,Illimo,Illimo,1403,14,1
+140304,Jayanca,Jayanca,1403,14,1
+140305,Mochumi,Mochumi,1403,14,1
+140306,Morrope,Morrope,1403,14,1
+140307,Motupe,Motupe,1403,14,1
+140308,Olmos,Olmos,1403,14,1
+140309,Pacora,Pacora,1403,14,1
+140310,Salas,Salas (Lambayeque),1403,14,1
+140311,San Jose,San Jose (Lambayeque),1403,14,1
+140312,Tucume,Tucume,1403,14,1
+150101,Lima,Lima,1501,15,1
+150102,Ancon,Ancon,1501,15,1
+150103,Ate,Ate,1501,15,1
+150104,Barranco,Barranco,1501,15,1
+150105,Bre�a,Bre�a,1501,15,1
+150106,Carabayllo,Carabayllo,1501,15,1
+150107,Chaclacayo,Chaclacayo,1501,15,1
+150108,Chorrillos,Chorrillos,1501,15,1
+150109,Cieneguilla,Cieneguilla,1501,15,1
+150110,Comas,Comas,1501,15,1
+150111,El Agustino,El Agustino,1501,15,1
+150112,Independencia,Independencia (Lima),1501,15,1
+150113,Jesus Maria,Jesus Maria,1501,15,1
+150114,La Molina,La Molina,1501,15,1
+150115,La Victoria,La Victoria (Lima),1501,15,1
+150116,Lince,Lince,1501,15,1
+150117,Los Olivos,Los Olivos,1501,15,1
+150118,Lurigancho,Lurigancho,1501,15,1
+150119,Lurin,Lurin,1501,15,1
+150120,Magdalena del Mar,Magdalena del Mar,1501,15,1
+150121,Pueblo Libre,Pueblo Libre,1501,15,1
+150122,Miraflores,Miraflores,1501,15,1
+150123,Pachacamac,Pachacamac,1501,15,1
+150124,Pucusana,Pucusana,1501,15,1
+150125,Puente Piedra,Puente Piedra,1501,15,1
+150126,Punta Hermosa,Punta Hermosa,1501,15,1
+150127,Punta Negra,Punta Negra,1501,15,1
+150128,Rimac,Rimac,1501,15,1
+150129,San Bartolo,San Bartolo,1501,15,1
+150130,San Borja,San Borja,1501,15,1
+150131,San Isidro,San Isidro,1501,15,1
+150132,San Juan de Lurigancho,San Juan de Lurigancho,1501,15,1
+150133,San Juan de Miraflores,San Juan de Miraflores,1501,15,1
+150134,San Luis,San Luis (Lima),1501,15,1
+150135,San Martin de Porres,San Martin de Porres,1501,15,1
+150136,San Miguel,San Miguel (Lima),1501,15,1
+150137,Santa Anita,Santa Anita,1501,15,1
+150138,Santa Maria del Mar,Santa Maria del Mar,1501,15,1
+150139,Santa Rosa,Santa Rosa (Lima),1501,15,1
+150140,Santiago de Surco,Santiago de Surco,1501,15,1
+150141,Surquillo,Surquillo,1501,15,1
+150142,Villa el Salvador,Villa el Salvador,1501,15,1
+150143,Villa Maria del Triunfo,Villa Maria del Triunfo,1501,15,1
+150201,Barranca,Barranca (Barranca),1502,15,1
+150202,Paramonga,Paramonga,1502,15,1
+150203,Pativilca,Pativilca,1502,15,1
+150204,Supe,Supe,1502,15,1
+150205,Supe Puerto,Supe Puerto,1502,15,1
+150401,Canta,Canta,1504,15,1
+150407,Santa Rosa de Quives,Santa Rosa de Quives,1504,15,1
+150501,San Vicente de Ca�ete,San Vicente de Ca�ete,1505,15,1
+150502,Asia,Asia,1505,15,1
+150503,Calango,Calango,1505,15,1
+150504,Cerro Azul,Cerro Azul,1505,15,1
+150505,Chilca,Chilca (Ca�ete),1505,15,1
+150507,Imperial,Imperial,1505,15,1
+150508,Lunahuana,Lunahuana,1505,15,1
+150509,Mala,Mala,1505,15,1
+150510,Nuevo Imperial,Nuevo Imperial,1505,15,1
+150511,Pacaran,Pacaran,1505,15,1
+150512,Quilmana,Quilmana,1505,15,1
+150513,San Antonio,San Antonio (Ca�ete),1505,15,1
+150514,San Luis,San Luis (Ca�ete),1505,15,1
+150515,Santa Cruz de Flores,Santa Cruz de Flores,1505,15,1
+150516,Zu�iga,Zu�iga,1505,15,1
+150601,Huaral,Huaral,1506,15,1
+150604,Aucallama,Aucallama,1506,15,1
+150605,Chancay,Chancay,1506,15,1
+150709,Huarochiri,Huarochiri,1507,15,1
+150714,Ricardo Palma,Ricardo Palma,1507,15,1
+150716,San Antonio,San Antonio (Huarochiri),1507,15,1
+150727,Santa Cruz de Cocachacra,Santa Cruz de Cocachacra,1507,15,1
+150728,Santa Eulalia,Santa Eulalia,1507,15,1
+150731,Santo Domingo de los Olleros,Santo Domingo de los Olleros,1507,15,1
+150801,Huacho,Huacho,1508,15,1
+150803,Caleta de Carquin,Caleta de Carquin,1508,15,1
+150805,Hualmay,Hualmay,1508,15,1
+150806,Huaura,Huaura,1508,15,1
+150810,Santa Maria,Santa Maria,1508,15,1
+150811,Sayan,Sayan,1508,15,1
+150812,Vegueta,Vegueta,1508,15,1
+160101,Iquitos,Iquitos,1601,16,1
+160102,Alto Nanay,Alto Nanay,1601,16,1
+160103,Fernando Lores,Fernando Lores,1601,16,1
+160104,Indiana,Indiana,1601,16,1
+160105,Las Amazonas,Las Amazonas,1601,16,1
+160106,Mazan,Mazan,1601,16,1
+160107,Napo,Napo,1601,16,1
+160108,Punchana,Punchana,1601,16,1
+160110,Torres Causana,Torres Causana,1601,16,1
+160112,Belen,Belen (Maynas),1601,16,1
+160113,San Juan Bautista,San Juan Bautista (Maynas),1601,16,1
+160201,Yurimaguas,Yurimaguas,1602,16,1
+160202,Balsapuerto,Balsapuerto,1602,16,1
+160205,Jeberos,Jeberos,1602,16,1
+160206,Lagunas,Lagunas (Alto Amazonas),1602,16,1
+160210,Santa Cruz,Santa Cruz (Alto Amazonas),1602,16,1
+160211,Teniente Cesar Lopez Rojas,Teniente Cesar Lopez Rojas,1602,16,1
+160301,Nauta,Nauta,1603,16,1
+160302,Parinari,Parinari,1603,16,1
+160303,Tigre,Tigre,1603,16,1
+160304,Trompeteros,Trompeteros,1603,16,1
+160305,Urarinas,Urarinas,1603,16,1
+160401,Ramon Castilla,Ramon Castilla,1604,16,1
+160402,Pebas,Pebas,1604,16,1
+160403,Yavari,Yavari,1604,16,1
+160404,San Pablo,San Pablo (Mariscal Ramon Castilla),1604,16,1
+160501,Requena,Requena,1605,16,1
+160502,Alto Tapiche,Alto Tapiche,1605,16,1
+160503,Capelo,Capelo,1605,16,1
+160504,Emilio San Martin,Emilio San Martin,1605,16,1
+160505,Maquia,Maquia,1605,16,1
+160506,Puinahua,Puinahua,1605,16,1
+160507,Saquena,Saquena,1605,16,1
+160508,Soplin,Soplin,1605,16,1
+160509,Tapiche,Tapiche,1605,16,1
+160510,Jenaro Herrera,Jenaro Herrera,1605,16,1
+160511,Yaquerana,Yaquerana,1605,16,1
+160601,Contamana,Contamana,1606,16,1
+160602,Inahuaya,Inahuaya,1606,16,1
+160603,Padre Marquez,Padre Marquez,1606,16,1
+160604,Pampa Hermosa,Pampa Hermosa (Ucayali),1606,16,1
+160605,Sarayacu,Sarayacu,1606,16,1
+160606,Vargas Guerra,Vargas Guerra,1606,16,1
+160701,Barranca,Barranca (Datem del Mara�on),1607,16,1
+160702,Cahuapanas,Cahuapanas,1607,16,1
+160703,Manseriche,Manseriche,1607,16,1
+160704,Morona,Morona,1607,16,1
+160705,Pastaza,Pastaza,1607,16,1
+160706,Andoas,Andoas,1607,16,1
+160801,Putumayo,Putumayo,1608,16,1
+160802,Rosa Panduro,Rosa Panduro,1608,16,1
+160803,Teniente Manuel Clavero,Teniente Manuel Clavero,1608,16,1
+160804,Yaguas,Yaguas,1608,16,1
+170101,Tambopata,Tambopata,1701,17,1
+170102,Inambari,Inambari,1701,17,1
+170103,Las Piedras,Las Piedras,1701,17,1
+170104,Laberinto,Laberinto,1701,17,1
+170201,Manu,Manu,1702,17,1
+170202,Fitzcarrald,Fitzcarrald,1702,17,1
+170203,Madre de Dios,Madre de Dios,1702,17,1
+170204,Huepetuhe,Huepetuhe,1702,17,1
+170301,I�apari,I�apari,1703,17,1
+170302,Iberia,Iberia,1703,17,1
+170303,Tahuamanu,Tahuamanu,1703,17,1
+180101,Moquegua,Moquegua,1801,18,1
+190301,Oxapampa,Oxapampa,1903,19,1
+190302,Chontabamba,Chontabamba,1903,19,1
+190304,Palcazu,Palcazu,1903,19,1
+190305,Pozuzo,Pozuzo,1903,19,1
+190306,Puerto Bermudez,Puerto Bermudez,1903,19,1
+190307,Villa Rica,Villa Rica,1903,19,1
+190308,Constitucion,Constitucion,1903,19,1
+200101,Piura,Piura,2001,20,1
+200104,Castilla,Castilla,2001,20,1
+200105,Catacaos,Catacaos,2001,20,1
+200107,Cura Mori,Cura Mori,2001,20,1
+200108,El Tallan,El Tallan,2001,20,1
+200109,La Arena,La Arena,2001,20,1
+200110,La Union,La Union,2001,20,1
+200111,Las Lomas,Las Lomas,2001,20,1
+200114,Tambo Grande,Tambo Grande,2001,20,1
+200115,Veintiseis de Octubre,Veintiseis de Octubre,2001,20,1
+200201,Ayabaca,Ayabaca,2002,20,1
+200202,Frias,Frias,2002,20,1
+200203,Jilili,Jilili,2002,20,1
+200206,Pacaipampa,Pacaipampa,2002,20,1
+200207,Paimas,Paimas,2002,20,1
+200208,Sapillica,Sapillica,2002,20,1
+200210,Suyo,Suyo,2002,20,1
+200301,Huancabamba,Huancabamba,2003,20,1
+200302,Canchaque,Canchaque,2003,20,1
+200303,El Carmen de la Frontera,El Carmen de la Frontera,2003,20,1
+200304,Huarmaca,Huarmaca,2003,20,1
+200305,Lalaquiz,Lalaquiz,2003,20,1
+200306,San Miguel de el Faique,San Miguel de el Faique,2003,20,1
+200307,Sondor,Sondor,2003,20,1
+200308,Sondorillo,Sondorillo,2003,20,1
+200401,Chulucanas,Chulucanas,2004,20,1
+200402,Buenos Aires,Buenos Aires (Morropon),2004,20,1
+200403,Chalaco,Chalaco,2004,20,1
+200404,La Matanza,La Matanza,2004,20,1
+200405,Morropon,Morropon,2004,20,1
+200406,Salitral,Salitral (Morropon),2004,20,1
+200407,San Juan de Bigote,San Juan de Bigote,2004,20,1
+200408,Santa Catalina de Mossa,Santa Catalina de Mossa,2004,20,1
+200409,Santo Domingo,Santo Domingo,2004,20,1
+200410,Yamango,Yamango,2004,20,1
+200501,Paita,Paita,2005,20,1
+200502,Amotape,Amotape,2005,20,1
+200503,Arenal,Arenal,2005,20,1
+200504,Colan,Colan,2005,20,1
+200505,La Huaca,La Huaca,2005,20,1
+200506,Tamarindo,Tamarindo,2005,20,1
+200507,Vichayal,Vichayal,2005,20,1
+200601,Sullana,Sullana,2006,20,1
+200602,Bellavista,Bellavista (Sullana),2006,20,1
+200603,Ignacio Escudero,Ignacio Escudero,2006,20,1
+200604,Lancones,Lancones,2006,20,1
+200605,Marcavelica,Marcavelica,2006,20,1
+200606,Miguel Checa,Miguel Checa,2006,20,1
+200607,Querecotillo,Querecotillo,2006,20,1
+200608,Salitral,Salitral (Sullana),2006,20,1
+200701,Pari�as,Pari�as,2007,20,1
+200702,El Alto,El Alto,2007,20,1
+200703,La Brea,La Brea,2007,20,1
+200704,Lobitos,Lobitos,2007,20,1
+200705,Los Organos,Los Organos,2007,20,1
+200706,Mancora,Mancora,2007,20,1
+200801,Sechura,Sechura,2008,20,1
+200802,Bellavista de la Union,Bellavista de la Union,2008,20,1
+200803,Bernal,Bernal,2008,20,1
+200804,Cristo Nos Valga,Cristo Nos Valga,2008,20,1
+200805,Vice,Vice,2008,20,1
+200806,Rinconada-llicuar,Rinconada-llicuar,2008,20,1
+210303,Ayapata,Ayapata,2103,21,1
+210308,Ollachea,Ollachea,2103,21,1
+210309,San Gaban,San Gaban,2103,21,1
+211001,Putina,Putina,2110,21,1
+211201,Sandia,Sandia,2112,21,1
+211207,San Juan del Oro,San Juan del Oro,2112,21,1
+211209,Alto Inambari,Alto Inambari,2112,21,1
+211210,San Pedro de Putina Punco,San Pedro de Putina Punco,2112,21,1
+220101,Moyobamba,Moyobamba,2201,22,1
+220102,Calzada,Calzada,2201,22,1
+220103,Habana,Habana,2201,22,1
+220104,Jepelacio,Jepelacio,2201,22,1
+220105,Soritor,Soritor,2201,22,1
+220106,Yantalo,Yantalo,2201,22,1
+220201,Bellavista,Bellavista (Bellavista),2202,22,1
+220202,Alto Biavo,Alto Biavo,2202,22,1
+220203,Bajo Biavo,Bajo Biavo,2202,22,1
+220204,Huallaga,Huallaga,2202,22,1
+220205,San Pablo,San Pablo (Bellavista),2202,22,1
+220206,San Rafael,San Rafael (Bellavista),2202,22,1
+220301,San Jose de Sisa,San Jose de Sisa,2203,22,1
+220302,Agua Blanca,Agua Blanca,2203,22,1
+220303,San Martin,San Martin,2203,22,1
+220304,Santa Rosa,Santa Rosa (El Dorado),2203,22,1
+220305,Shatoja,Shatoja,2203,22,1
+220401,Saposoa,Saposoa,2204,22,1
+220402,Alto Saposoa,Alto Saposoa,2204,22,1
+220403,El Eslabon,El Eslabon,2204,22,1
+220404,Piscoyacu,Piscoyacu,2204,22,1
+220405,Sacanche,Sacanche,2204,22,1
+220406,Tingo de Saposoa,Tingo de Saposoa,2204,22,1
+220501,Lamas,Lamas,2205,22,1
+220502,Alonso de Alvarado,Alonso de Alvarado,2205,22,1
+220503,Barranquita,Barranquita,2205,22,1
+220504,Caynarachi,Caynarachi,2205,22,1
+220505,Cu�umbuqui,Cu�umbuqui,2205,22,1
+220506,Pinto Recodo,Pinto Recodo,2205,22,1
+220507,Rumisapa,Rumisapa,2205,22,1
+220508,San Roque de Cumbaza,San Roque de Cumbaza,2205,22,1
+220509,Shanao,Shanao,2205,22,1
+220510,Tabalosos,Tabalosos,2205,22,1
+220511,Zapatero,Zapatero,2205,22,1
+220601,Juanjui,Juanjui,2206,22,1
+220602,Campanilla,Campanilla,2206,22,1
+220603,Huicungo,Huicungo,2206,22,1
+220604,Pachiza,Pachiza,2206,22,1
+220605,Pajarillo,Pajarillo,2206,22,1
+220701,Picota,Picota,2207,22,1
+220702,Buenos Aires,Buenos Aires (Picota),2207,22,1
+220703,Caspizapa,Caspizapa,2207,22,1
+220704,Pilluana,Pilluana,2207,22,1
+220705,Pucacaca,Pucacaca,2207,22,1
+220706,San Cristobal,San Cristobal,2207,22,1
+220707,San Hilarion,San Hilarion,2207,22,1
+220708,Shamboyacu,Shamboyacu,2207,22,1
+220709,Tingo de Ponasa,Tingo de Ponasa,2207,22,1
+220710,Tres Unidos,Tres Unidos,2207,22,1
+220801,Rioja,Rioja,2208,22,1
+220802,Awajun,Awajun,2208,22,1
+220803,Elias Soplin Vargas,Elias Soplin Vargas,2208,22,1
+220804,Nueva Cajamarca,Nueva Cajamarca,2208,22,1
+220805,Pardo Miguel,Pardo Miguel,2208,22,1
+220806,Posic,Posic,2208,22,1
+220807,San Fernando,San Fernando,2208,22,1
+220808,Yorongos,Yorongos,2208,22,1
+220809,Yuracyacu,Yuracyacu,2208,22,1
+220901,Tarapoto,Tarapoto,2209,22,1
+220902,Alberto Leveau,Alberto Leveau,2209,22,1
+220903,Cacatachi,Cacatachi,2209,22,1
+220904,Chazuta,Chazuta,2209,22,1
+220905,Chipurana,Chipurana,2209,22,1
+220906,El Porvenir,El Porvenir (San Martin),2209,22,1
+220907,Huimbayoc,Huimbayoc,2209,22,1
+220908,Juan Guerra,Juan Guerra,2209,22,1
+220909,La Banda de Shilcayo,La Banda de Shilcayo,2209,22,1
+220910,Morales,Morales,2209,22,1
+220911,Papaplaya,Papaplaya,2209,22,1
+220912,San Antonio,San Antonio (San Martin),2209,22,1
+220913,Sauce,Sauce,2209,22,1
+220914,Shapaja,Shapaja,2209,22,1
+221001,Tocache,Tocache,2210,22,1
+221002,Nuevo Progreso,Nuevo Progreso,2210,22,1
+221003,Polvora,Polvora,2210,22,1
+221004,Shunte,Shunte,2210,22,1
+221005,Uchiza,Uchiza,2210,22,1
+221006,Santa Lucia,Santa Lucia,2210,22,0
+240101,Tumbes,Tumbes,2401,24,1
+240102,Corrales,Corrales,2401,24,1
+240103,La Cruz,La Cruz,2401,24,1
+240104,Pampas de Hospital,Pampas de Hospital,2401,24,1
+240105,San Jacinto,San Jacinto,2401,24,1
+240106,San Juan de la Virgen,San Juan de la Virgen,2401,24,1
+240201,Zorritos,Zorritos,2402,24,1
+240202,Casitas,Casitas,2402,24,1
+240203,Canoas de Punta Sal,Canoas de Punta Sal,2402,24,1
+240301,Zarumilla,Zarumilla,2403,24,1
+240302,Aguas Verdes,Aguas Verdes,2403,24,1
+240303,Matapalo,Matapalo,2403,24,1
+240304,Papayal,Papayal,2403,24,1
+250101,Calleria,Calleria,2501,25,1
+250102,Campoverde,Campoverde,2501,25,1
+250103,Iparia,Iparia,2501,25,1
+250104,Masisea,Masisea,2501,25,1
+250105,Yarinacocha,Yarinacocha,2501,25,1
+250106,Nueva Requena,Nueva Requena,2501,25,1
+250107,Manantay,Manantay,2501,25,1
+250201,Raimondi,Raimondi,2502,25,1
+250202,Sepahua,Sepahua,2502,25,1
+250203,Tahuania,Tahuania,2502,25,1
+250204,Yurua,Yurua,2502,25,1
+250301,Padre Abad,Padre Abad,2503,25,1
+250302,Irazola,Irazola,2503,25,1
+250303,Curimana,Curimana,2503,25,1
+250304,Neshuya,Neshuya,2503,25,1
+250305,Alexander Von Humboldt,Alexander Von Humboldt,2503,25,1
+250306,Huipoca,Huipoca,2503,25,0
+250307,Boqueron,Boqueron,2503,25,0
+250401,Purus,Purus,2504,25,1

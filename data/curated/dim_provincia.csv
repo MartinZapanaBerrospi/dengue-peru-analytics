@@ -1,0 +1,125 @@
+provincia_id,provincia,provincia_unica,departamento_id
+0101,Chachapoyas,Chachapoyas,01
+0102,Bagua,Bagua,01
+0103,Bongara,Bongara,01
+0104,Condorcanqui,Condorcanqui,01
+0106,Rodriguez de Mendoza,Rodriguez de Mendoza,01
+0107,Utcubamba,Utcubamba,01
+0201,Huaraz,Huaraz,02
+0208,Casma,Casma,02
+0211,Huarmey,Huarmey,02
+0212,Huaylas,Huaylas,02
+0215,Pallasca,Pallasca,02
+0218,Santa,Santa,02
+0301,Abancay,Abancay,03
+0304,Aymaraes,Aymaraes,03
+0401,Arequipa,Arequipa,04
+0403,Caraveli,Caraveli,04
+0407,Islay,Islay,04
+0501,Huamanga,Huamanga,05
+0502,Cangallo,Cangallo,05
+0504,Huanta,Huanta,05
+0505,La Mar,La Mar,05
+0506,Lucanas,Lucanas,05
+0507,Parinacochas,Parinacochas,05
+0508,Paucar del Sara Sara,Paucar del Sara Sara,05
+0509,Sucre,Sucre,05
+0601,Cajamarca,Cajamarca,06
+0602,Cajabamba,Cajabamba,06
+0603,Celendin,Celendin,06
+0604,Chota,Chota,06
+0605,Contumaza,Contumaza,06
+0606,Cutervo,Cutervo,06
+0607,Hualgayoc,Hualgayoc,06
+0608,Jaen,Jaen,06
+0609,San Ignacio,San Ignacio,06
+0611,San Miguel,San Miguel,06
+0612,San Pablo,San Pablo,06
+0613,Santa Cruz,Santa Cruz,06
+0701,Callao,Callao,07
+0801,Cusco,Cusco,08
+0804,Calca,Calca,08
+0809,La Convencion,La Convencion,08
+0811,Paucartambo,Paucartambo,08
+0812,Quispicanchi,Quispicanchi,08
+0813,Urubamba,Urubamba,08
+1001,Huanuco,Huanuco,10
+1002,Ambo,Ambo,10
+1003,Dos de Mayo,Dos de Mayo,10
+1004,Huacaybamba,Huacaybamba,10
+1005,Huamalies,Huamalies,10
+1006,Leoncio Prado,Leoncio Prado,10
+1007,Mara�on,Mara�on,10
+1008,Pachitea,Pachitea,10
+1009,Puerto Inca,Puerto Inca,10
+1101,Ica,Ica,11
+1102,Chincha,Chincha,11
+1103,Nazca,Nazca,11
+1104,Palpa,Palpa,11
+1105,Pisco,Pisco,11
+1201,Huancayo,Huancayo,12
+1203,Chanchamayo,Chanchamayo,12
+1205,Junin,Junin,12
+1206,Satipo,Satipo,12
+1301,Trujillo,Trujillo,13
+1302,Ascope,Ascope,13
+1303,Bolivar,Bolivar,13
+1304,Chepen,Chepen,13
+1306,Otuzco,Otuzco,13
+1307,Pacasmayo,Pacasmayo,13
+1308,Pataz,Pataz,13
+1309,Sanchez Carrion,Sanchez Carrion,13
+1310,Santiago de Chuco,Santiago de Chuco,13
+1311,Gran Chimu,Gran Chimu,13
+1312,Viru,Viru,13
+1401,Chiclayo,Chiclayo,14
+1402,Ferre�afe,Ferre�afe,14
+1403,Lambayeque,Lambayeque,14
+1501,Lima,Lima,15
+1502,Barranca,Barranca,15
+1504,Canta,Canta,15
+1505,Ca�ete,Ca�ete,15
+1506,Huaral,Huaral,15
+1507,Huarochiri,Huarochiri,15
+1508,Huaura,Huaura,15
+1601,Maynas,Maynas,16
+1602,Alto Amazonas,Alto Amazonas,16
+1603,Loreto,Loreto,16
+1604,Mariscal Ramon Castilla,Mariscal Ramon Castilla,16
+1605,Requena,Requena,16
+1606,Ucayali,Ucayali,16
+1607,Datem del Mara�on,Datem del Mara�on,16
+1608,Putumayo,Putumayo,16
+1701,Tambopata,Tambopata,17
+1702,Manu,Manu,17
+1703,Tahuamanu,Tahuamanu,17
+1801,Mariscal Nieto,Mariscal Nieto,18
+1903,Oxapampa,Oxapampa,19
+2001,Piura,Piura,20
+2002,Ayabaca,Ayabaca,20
+2003,Huancabamba,Huancabamba,20
+2004,Morropon,Morropon,20
+2005,Paita,Paita,20
+2006,Sullana,Sullana,20
+2007,Talara,Talara,20
+2008,Sechura,Sechura,20
+2103,Carabaya,Carabaya,21
+2110,San Antonio de Putina,San Antonio de Putina,21
+2112,Sandia,Sandia,21
+2201,Moyobamba,Moyobamba,22
+2202,Bellavista,Bellavista,22
+2203,El Dorado,El Dorado,22
+2204,Huallaga,Huallaga,22
+2205,Lamas,Lamas,22
+2206,Mariscal Caceres,Mariscal Caceres,22
+2207,Picota,Picota,22
+2208,Rioja,Rioja,22
+2209,San Martin,San Martin,22
+2210,Tocache,Tocache,22
+2401,Tumbes,Tumbes,24
+2402,Contralmirante Villar,Contralmirante Villar,24
+2403,Zarumilla,Zarumilla,24
+2501,Coronel Portillo,Coronel Portillo,25
+2502,Atalaya,Atalaya,25
+2503,Padre Abad,Padre Abad,25
+2504,Purus,Purus,25
