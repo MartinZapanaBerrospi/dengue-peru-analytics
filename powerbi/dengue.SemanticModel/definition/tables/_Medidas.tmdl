@@ -1,0 +1,265 @@
+table _Medidas
+	lineageTag: 7845b71a-7432-5554-87fd-ca1e0d1b29d6
+
+	/// Casos de dengue notificados al sistema de vigilancia, por lugar probable de infección.
+	measure Casos = SUM ( fact_caso[casos] )
+		formatString: #,##0
+		displayFolder: 1. Casos
+		lineageTag: a7d7309a-5489-54c2-b184-ac9ac7d72102
+
+	/// Casos del año anterior al elegido. Solo con un año elegido.
+	measure 'Casos año anterior' =
+			VAR y = SELECTEDVALUE ( dim_anio[anio] )
+			RETURN
+			    IF ( NOT ISBLANK ( y ), CALCULATE ( [Casos], REMOVEFILTERS ( dim_anio ), dim_anio[anio] = y - 1 ) )
+		formatString: #,##0
+		displayFolder: 1. Casos
+		lineageTag: 74de4496-679a-5a4e-a91f-ec5b4829016f
+
+	/// Variación de los casos frente al año anterior. Solo con un año elegido.
+	measure 'Var. interanual' =
+			VAR antes = [Casos año anterior]
+			RETURN
+			    IF ( NOT ISBLANK ( antes ) && antes > 0, DIVIDE ( [Casos] - antes, antes ) )
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 1. Casos
+		lineageTag: aa1f94b4-4d67-596e-a12e-85f9279bf0e2
+
+	/// Parte de los casos del país (con el mismo año, forma clínica, edad y sexo) que tiene el territorio.
+	measure '% de los casos del país' = DIVIDE ( [Casos], CALCULATE ( [Casos], REMOVEFILTERS ( dim_departamento ), REMOVEFILTERS ( dim_provincia ), REMOVEFILTERS ( dim_distrito ) ) )
+		formatString: 0.0%
+		displayFolder: 1. Casos
+		lineageTag: 34cbcb14-87a5-5ff9-b7dd-303269f9c1d2
+
+	/// Distritos distintos con al menos un caso.
+	measure 'Distritos con casos' = DISTINCTCOUNT ( fact_caso[ubigeo] )
+		formatString: #,##0
+		displayFolder: 1. Casos
+		lineageTag: 21c90dd8-140a-5e50-bb1c-a457abe7b4b1
+
+	/// Provincias con al menos un caso.
+	measure 'Provincias con casos' = COUNTROWS ( FILTER ( VALUES ( dim_provincia[provincia_id] ), [Casos] > 0 ) )
+		formatString: #,##0
+		displayFolder: 1. Casos
+		lineageTag: 65eb031f-2bb6-5e2e-95bf-f5c54cdd3ad7
+
+	/// Departamentos con al menos un caso.
+	measure 'Departamentos con casos' = COUNTROWS ( FILTER ( VALUES ( dim_departamento[departamento_id] ), [Casos] > 0 ) )
+		formatString: #,##0
+		displayFolder: 1. Casos
+		lineageTag: e67fccdd-6742-5636-b745-fe10ff75591b
+
+	/// Casos con una edad válida (hasta 110 años); sirven para la edad promedio.
+	measure 'Casos con edad válida' = SUM ( fact_caso[casos_con_edad] )
+		formatString: #,##0
+		displayFolder: 1. Casos
+		lineageTag: 6ae501c8-d2ca-5317-bfa4-e7b6aa34e1d1
+
+	/// Edad promedio en años de los casos con edad válida.
+	measure 'Edad promedio' = DIVIDE ( SUM ( fact_caso[edad_suma] ), [Casos con edad válida] )
+		formatString: 0.0
+		displayFolder: 1. Casos
+		lineageTag: 73bd65c6-3641-56eb-a1f3-216b87662e1d
+
+	/// Parte de los casos que son mujeres.
+	measure '% de mujeres' = DIVIDE ( CALCULATE ( [Casos], dim_sexo[sexo_id] = "F" ), [Casos] )
+		formatString: 0.0%
+		displayFolder: 1. Casos
+		lineageTag: 7dd77f5f-a14c-5ec3-8fad-2d8f9430acfb
+
+	/// Parte de los casos que corresponde al grupo de edad dentro del contexto (año, territorio).
+	measure 'Participación del grupo de edad' = DIVIDE ( [Casos], CALCULATE ( [Casos], REMOVEFILTERS ( dim_grupo_edad ) ) )
+		formatString: 0.0%
+		displayFolder: 1. Casos
+		lineageTag: 931bab9a-a9d9-5cca-9f2a-e0fe96878eb3
+
+	/// Casos clasificados como dengue con signos de alarma o dengue grave.
+	measure 'Casos con signos de alarma o graves' = CALCULATE ( [Casos], dim_forma_clinica[alarma_o_grave] = 1 )
+		formatString: #,##0
+		displayFolder: 2. Gravedad
+		lineageTag: dfafabe3-2f66-59e3-beaf-a7b4c62f6653
+
+	/// Parte de los casos con signos de alarma o graves. Solo comparable desde 2011: antes la clasificación era distinta.
+	measure '% con signos de alarma o graves' = DIVIDE ( [Casos con signos de alarma o graves], [Casos] )
+		formatString: 0.0%
+		displayFolder: 2. Gravedad
+		lineageTag: 806700ec-0bc2-5835-9cbe-57019b0886cf
+
+	/// Casos de dengue grave.
+	measure 'Casos graves' = CALCULATE ( [Casos], dim_forma_clinica[cie10] = "A97.2" )
+		formatString: #,##0
+		displayFolder: 2. Gravedad
+		lineageTag: a43b1586-995a-5232-bc22-48031fe2a4e1
+
+	/// Parte de los casos que son graves.
+	measure '% graves' = DIVIDE ( [Casos graves], [Casos] )
+		formatString: 0.00%
+		displayFolder: 2. Gravedad
+		lineageTag: b13c55e4-8bb1-5b3c-90d3-aed8ae4e041f
+
+	/// Fallecidos por dengue según la tabla oficial del CDC (2012–2024). El archivo de casos no los trae.
+	measure 'Fallecidos (CDC)' = SUM ( fact_cdc_anual[fallecidos_cdc] )
+		formatString: #,##0
+		displayFolder: 2. Gravedad
+		lineageTag: 8a182265-7986-5b32-be32-6127e4bfb765
+
+	/// Casos de la tabla oficial del CDC.
+	measure 'Casos (CDC)' = SUM ( fact_cdc_anual[casos_cdc] )
+		formatString: #,##0
+		displayFolder: 2. Gravedad
+		lineageTag: f34be1aa-22bb-5dd9-8777-56f48c1c1166
+
+	/// Fallecidos entre casos, ambos de la tabla oficial del CDC.
+	measure 'Letalidad (CDC)' = DIVIDE ( [Fallecidos (CDC)], [Casos (CDC)] )
+		formatString: 0.00%
+		displayFolder: 2. Gravedad
+		lineageTag: cafd2508-d4ad-5d62-9ea1-74fd92399a9b
+
+	/// Población proyectada de los territorios elegidos, sumada sobre los años elegidos. Con un solo año es la población de ese año. Se calcula con el nivel que se muestra (provincia o departamento); un distrito no tiene población propia.
+	measure 'Población (habitantes-año)' =
+			IF (
+			    ISFILTERED ( dim_distrito[distrito_unico] ),
+			    BLANK (),
+			    IF (
+			        ISFILTERED ( dim_provincia[provincia_unica] ),
+			        SUM ( fact_poblacion_provincia[poblacion] ),
+			        SUM ( fact_poblacion_departamento[poblacion] )
+			    )
+			)
+		formatString: #,##0
+		displayFolder: 3. Incidencia
+		lineageTag: 589e63e5-e3aa-57be-810e-187f42b676fd
+
+	/// Casos de los años que tienen población (desde 2013 por departamento y desde 2016 por provincia).
+	measure 'Casos con población' =
+			IF (
+			    ISFILTERED ( dim_provincia[provincia_unica] ),
+			    CALCULATE ( [Casos], dim_anio[con_poblacion_provincial] = 1 ),
+			    CALCULATE ( [Casos], dim_anio[con_poblacion] = 1 )
+			)
+		formatString: #,##0
+		displayFolder: 3. Incidencia
+		lineageTag: f6ab74b0-13be-53a6-954d-bdd3e66380a2
+
+	/// Casos por 100 mil habitantes en un año. Sobre varios años es el promedio anual ponderado por población (suma de casos entre suma de población), nunca un promedio de tasas. Con edad o sexo elegidos, es la tasa de esos casos sobre la población total.
+	measure 'Incidencia por 100 mil' =
+			VAR habitantes = [Población (habitantes-año)]
+			RETURN
+			    IF ( NOT ISBLANK ( habitantes ), DIVIDE ( [Casos con población], habitantes ) * 100000 )
+		formatString: #,##0.0
+		displayFolder: 3. Incidencia
+		lineageTag: 7aedd821-4b11-5737-b648-505e98e65055
+
+	/// La misma incidencia para todo el país, con el mismo periodo, forma clínica, edad y sexo.
+	measure 'Incidencia nacional' = CALCULATE ( [Incidencia por 100 mil], REMOVEFILTERS ( dim_departamento ), REMOVEFILTERS ( dim_provincia ), REMOVEFILTERS ( dim_distrito ) )
+		formatString: #,##0.0
+		displayFolder: 3. Incidencia
+		lineageTag: 38c23bf9-9a13-56fc-b863-2df230a21ddc
+
+	/// Incidencia del territorio dividida por la nacional: 2 significa el doble.
+	measure 'Veces la incidencia nacional' = DIVIDE ( [Incidencia por 100 mil], [Incidencia nacional] )
+		formatString: 0.00
+		displayFolder: 3. Incidencia
+		lineageTag: 5dd5dfe3-e10b-57da-be71-c788c146d0b4
+
+	/// Parte de los casos del año (o periodo elegido) que cae en la semana.
+	measure 'Parte de los casos del año' = DIVIDE ( [Casos], CALCULATE ( [Casos], REMOVEFILTERS ( dim_semana ) ) )
+		formatString: 0.0%
+		displayFolder: 4. Temporada
+		lineageTag: 58a84fcc-387a-5fe9-bf8f-6d5aa4f0c79d
+
+	/// Semana epidemiológica con más casos en el contexto.
+	measure 'Semana pico' =
+			VAR t = ADDCOLUMNS ( VALUES ( dim_semana[semana] ), "@c", [Casos] )
+			RETURN
+			    IF ( NOT ISBLANK ( [Casos] ), MAXX ( TOPN ( 1, t, [@c], DESC ), dim_semana[semana] ) )
+		formatString: 0
+		displayFolder: 4. Temporada
+		lineageTag: 31dbf929-491c-5fce-8c4b-43d12d1ddfae
+
+	/// Casos de la semana con más casos.
+	measure 'Casos en la semana pico' =
+			VAR t = ADDCOLUMNS ( VALUES ( dim_semana[semana] ), "@c", [Casos] )
+			RETURN
+			    MAXX ( t, [@c] )
+		formatString: #,##0
+		displayFolder: 4. Temporada
+		lineageTag: b085a18a-5cb8-5c7a-a3c2-aa14a62c33f2
+
+	/// Semanas de departamento con más casos que el percentil 90 de las mismas semanas de los 5 años previos (y al menos 10 casos).
+	measure 'Semanas sobre el canal' = SUM ( fact_canal_endemico[sobre_canal] )
+		formatString: #,##0
+		displayFolder: 5. Canal endémico
+		lineageTag: a9ec35c8-ca25-5320-b692-2f4c5d653f21
+
+	/// Semanas de departamento evaluadas contra su canal (desde 2005).
+	measure 'Semanas evaluadas' = COUNTROWS ( fact_canal_endemico )
+		formatString: #,##0
+		displayFolder: 5. Canal endémico
+		lineageTag: 7e3d34d9-3dee-5f29-b5f9-9b33d54cf24d
+
+	/// Parte de las semanas evaluadas que quedó sobre el canal.
+	measure '% de semanas sobre el canal' = DIVIDE ( [Semanas sobre el canal], [Semanas evaluadas] )
+		formatString: 0.0%
+		displayFolder: 5. Canal endémico
+		lineageTag: 74bc2387-5051-50c5-b6b5-5a405f5910fc
+
+	/// Semanas en que los casos del país superaron el percentil 90 del canal nacional.
+	measure 'Semanas del país sobre el canal' = SUM ( fact_canal_nacional[sobre_canal] )
+		formatString: #,##0
+		displayFolder: 5. Canal endémico
+		lineageTag: 0bd6396a-b37f-55ee-95cf-192c5d41c5a2
+
+	/// Percentil 90 de los casos del país en la misma semana de los 5 años previos. Úselo por semana y con un año elegido.
+	measure 'Umbral del canal (país)' = AVERAGE ( fact_canal_nacional[umbral] )
+		formatString: #,##0
+		displayFolder: 5. Canal endémico
+		lineageTag: 201a99e4-4d0e-54e7-a298-f9c24f9f37b4
+
+	/// Mediana de los casos del país en la misma semana de los 5 años previos.
+	measure 'Mediana histórica (país)' = AVERAGE ( fact_canal_nacional[mediana_historica] )
+		formatString: #,##0
+		displayFolder: 5. Canal endémico
+		lineageTag: 9a3db07d-c582-54f3-be19-dcb38730e9a8
+
+	/// Percentil 90 de los casos del departamento en la misma semana de los 5 años previos.
+	measure 'Umbral del canal (departamento)' = AVERAGE ( fact_canal_endemico[umbral] )
+		formatString: #,##0.0
+		displayFolder: 5. Canal endémico
+		lineageTag: ee4f9943-59d9-5fcc-8b4c-35c0bfd503e8
+
+	/// Casos con edad imposible (más de 110 años), marcados en la Fase 2.
+	measure 'Casos sin edad válida' = CALCULATE ( [Casos], dim_grupo_edad[grupo_edad] = "Sin edad válida" )
+		formatString: #,##0
+		displayFolder: 6. Calidad de datos
+		lineageTag: 817f639a-8b9e-5090-aa0a-1b808d596e37
+
+	/// Casos de distritos creados desde 2021 que el padrón de población no conoce: cuentan en la provincia, no tienen incidencia propia.
+	measure 'Casos en distritos fuera del padrón' = CALCULATE ( [Casos], dim_distrito[distrito_en_padron] = 0 )
+		formatString: #,##0
+		displayFolder: 6. Calidad de datos
+		lineageTag: d1f74cab-1e07-5128-8be0-d5f02f28b440
+
+	/// Último año con datos.
+	measure 'Corte de datos' = "Casos notificados al CDC Perú hasta el año " & CALCULATE ( MAX ( fact_caso[anio] ), REMOVEFILTERS () )
+		displayFolder: 7. Textos
+		lineageTag: 202edcaa-2e79-5514-bb80-ecafb90987a4
+
+	/// Pie de fuente para cada página.
+	measure Fuente = "Fuente: CDC Perú (MINSA), vigilancia epidemiológica de dengue, y población proyectada del MININTER (datosabiertos.gob.pe). Elaboración propia."
+		displayFolder: 7. Textos
+		lineageTag: d6f6323c-5619-500e-b331-734def2ed378
+
+	column Columna
+		dataType: string
+		isHidden
+		lineageTag: 5ecf18a2-1064-5f4f-ba0a-47e275a0f70d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Columna]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Medidas = calculated
+		mode: import
+		source = ROW ( "Columna", BLANK () )

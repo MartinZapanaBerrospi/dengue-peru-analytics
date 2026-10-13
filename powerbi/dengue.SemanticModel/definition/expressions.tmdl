@@ -1,0 +1,6 @@
+/// Carpeta data/curated del repositorio, con barra final. Cámbiala al clonar el proyecto en otra ruta.
+expression RutaDatos = "C:\Users\marzabe\GitHub\dengue-peru-analytics\data\curated\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: d6a59af4-0228-53e5-a13f-d11d8edc5331
+
+	annotation PBI_ResultType = Text
+

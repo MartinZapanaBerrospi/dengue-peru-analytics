@@ -1,0 +1,51 @@
+/// Forma clínica del caso: sin signos de alarma, con signos de alarma o grave.
+table dim_forma_clinica
+	lineageTag: e154bfd4-1564-578d-84bb-58f720282812
+
+	column forma_clinica_id
+		dataType: int64
+		isKey
+		isHidden
+		lineageTag: 526fb8bf-693a-5889-947e-c309cf369c0f
+		summarizeBy: none
+		sourceColumn: forma_clinica_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column forma_clinica
+		dataType: string
+		lineageTag: 8c0eecd1-b3cb-5e04-8ca0-b8d2406161b3
+		summarizeBy: none
+		sourceColumn: forma_clinica
+		sortByColumn: forma_clinica_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column cie10
+		dataType: string
+		lineageTag: 6a443ca4-8947-5b0c-9b81-138cc78735b4
+		summarizeBy: none
+		sourceColumn: cie10
+
+		annotation SummarizationSetBy = Automatic
+
+	column alarma_o_grave
+		dataType: int64
+		isHidden
+		lineageTag: 10412233-fe02-5a91-b1a8-37607aec43a5
+		summarizeBy: none
+		sourceColumn: alarma_o_grave
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_forma_clinica = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "dim_forma_clinica.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"forma_clinica_id", Int64.Type}, {"forma_clinica", type text}, {"cie10", type text}, {"alarma_o_grave", Int64.Type}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

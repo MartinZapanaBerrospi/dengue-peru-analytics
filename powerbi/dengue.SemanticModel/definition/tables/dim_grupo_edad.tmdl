@@ -1,0 +1,34 @@
+/// Curso de vida del paciente; los casos con edad imposible quedan en «Sin edad válida».
+table dim_grupo_edad
+	lineageTag: d7122939-cb21-5e02-883e-4060f27b98b2
+
+	column grupo_edad_id
+		dataType: int64
+		isKey
+		isHidden
+		lineageTag: 8cc8f7a1-a59a-5374-830b-48c13bec708a
+		summarizeBy: none
+		sourceColumn: grupo_edad_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column grupo_edad
+		dataType: string
+		lineageTag: 71c933c7-389c-5119-a5a8-d959e12f7165
+		summarizeBy: none
+		sourceColumn: grupo_edad
+		sortByColumn: grupo_edad_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_grupo_edad = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "dim_grupo_edad.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"grupo_edad_id", Int64.Type}, {"grupo_edad", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

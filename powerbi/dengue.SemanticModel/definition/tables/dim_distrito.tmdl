@@ -1,0 +1,68 @@
+/// Distrito de infección probable, por UBIGEO de 6 dígitos. distrito_unico agrega la provincia si el nombre se repite.
+table dim_distrito
+	lineageTag: aff10705-6ae7-5057-96f4-abfe52370303
+
+	column ubigeo
+		dataType: string
+		isKey
+		lineageTag: cebbf916-fdc6-5434-97d1-79d637bc878a
+		summarizeBy: none
+		sourceColumn: ubigeo
+
+		annotation SummarizationSetBy = Automatic
+
+	column distrito
+		dataType: string
+		lineageTag: 692f6e58-7c41-5f34-9d18-88d5b2078568
+		summarizeBy: none
+		sourceColumn: distrito
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Nombre para mostrar; único en todo el modelo
+	column distrito_unico
+		dataType: string
+		lineageTag: 4fb4c0b4-ebfc-5ac2-8b14-1566612e6578
+		summarizeBy: none
+		sourceColumn: distrito_unico
+
+		annotation SummarizationSetBy = Automatic
+
+	column provincia_id
+		dataType: string
+		isHidden
+		lineageTag: c7e92dc9-cfa8-5dc6-ab98-e3e4d961a4b5
+		summarizeBy: none
+		sourceColumn: provincia_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column departamento_id
+		dataType: string
+		isHidden
+		lineageTag: a671171a-0e7f-5e16-b39a-fb71dc70cc48
+		summarizeBy: none
+		sourceColumn: departamento_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column distrito_en_padron
+		dataType: int64
+		isHidden
+		lineageTag: ef83ae94-d951-5709-a80c-3535f4588d79
+		summarizeBy: none
+		sourceColumn: distrito_en_padron
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_distrito = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "dim_distrito.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"ubigeo", type text}, {"distrito", type text}, {"distrito_unico", type text}, {"provincia_id", type text}, {"departamento_id", type text}, {"distrito_en_padron", Int64.Type}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,42 @@
+/// Los 25 departamentos del país (Lima y Callao separados) y la zona de análisis del proyecto.
+table dim_departamento
+	lineageTag: 3415aa76-0fa2-5890-90b5-468a2cf7b6ce
+
+	column departamento_id
+		dataType: string
+		isKey
+		isHidden
+		lineageTag: 68b55924-f9a3-5b49-b37d-5cc650e1a456
+		summarizeBy: none
+		sourceColumn: departamento_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column departamento
+		dataType: string
+		lineageTag: 86992666-42ed-5e96-a25f-a100bc30c0ce
+		summarizeBy: none
+		sourceColumn: departamento
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Agrupación de departamentos del proyecto (no es una región oficial)
+	column zona
+		dataType: string
+		lineageTag: b66662ae-2c6f-567d-a933-28a648af4f10
+		summarizeBy: none
+		sourceColumn: zona
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_departamento = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "dim_departamento.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"departamento_id", type text}, {"departamento", type text}, {"zona", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

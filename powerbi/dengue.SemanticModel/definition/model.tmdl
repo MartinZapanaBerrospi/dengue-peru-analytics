@@ -1,0 +1,31 @@
+model Model
+	culture: es-PE
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["RutaDatos", "dim_anio", "dim_semana", "dim_departamento", "dim_provincia", "dim_distrito", "dim_forma_clinica", "dim_grupo_edad", "dim_sexo", "fact_caso", "fact_poblacion_departamento", "fact_poblacion_provincia", "fact_canal_endemico", "fact_canal_nacional", "fact_cdc_anual"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_anio
+ref table dim_semana
+ref table dim_departamento
+ref table dim_provincia
+ref table dim_distrito
+ref table dim_forma_clinica
+ref table dim_grupo_edad
+ref table dim_sexo
+ref table fact_caso
+ref table fact_poblacion_departamento
+ref table fact_poblacion_provincia
+ref table fact_canal_endemico
+ref table fact_canal_nacional
+ref table fact_cdc_anual
+ref table _Medidas
+

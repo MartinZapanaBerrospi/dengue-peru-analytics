@@ -129,6 +129,13 @@ def fact_poblacion_provincia(pop: dict, provinces: pd.DataFrame) -> pd.DataFrame
     return out[["provincia_id", "anio", "poblacion"]].astype({"poblacion": int}).sort_values(["provincia_id", "anio"]).reset_index(drop=True)
 
 
+def fact_cdc_anual() -> pd.DataFrame:
+    """Casos y fallecidos oficiales del CDC (sala situacional, SE 33 de 2026). El archivo no trae fallecidos."""
+    sala = pd.read_csv(config.REFERENCE / "cdc_sala_casos_fallecidos.csv")
+    sala = sala[sala["anio"].between(2012, config.LAST_YEAR)]
+    return sala[["anio", "casos_cdc", "fallecidos_cdc"]].reset_index(drop=True)
+
+
 def weeks_in_year(cases: pd.DataFrame) -> dict:
     """52 semanas, o 53 en los años donde el archivo trae casos en esa semana (problema 15)."""
     return {y: int(53 if (g == 53).any() else 52) for y, g in cases.groupby("anio")["semana"]}
@@ -201,6 +208,7 @@ KEYS = {
     "fact_poblacion_provincia": ["provincia_id", "anio"],
     "fact_canal_endemico": ["departamento_id", "anio", "semana"],
     "fact_canal_nacional": ["anio", "semana"],
+    "fact_cdc_anual": ["anio"],
     "dim_distrito": ["ubigeo"], "dim_provincia": ["provincia_id"], "dim_departamento": ["departamento_id"],
     "dim_anio": ["anio"], "dim_semana": ["semana"], "dim_forma_clinica": ["forma_clinica_id"],
     "dim_grupo_edad": ["grupo_edad_id"], "dim_sexo": ["sexo_id"],
@@ -216,6 +224,7 @@ FOREIGN = [
     ("fact_canal_endemico", "departamento_id", "dim_departamento", "departamento_id"),
     ("fact_canal_endemico", "anio", "dim_anio", "anio"), ("fact_canal_endemico", "semana", "dim_semana", "semana"),
     ("fact_canal_nacional", "anio", "dim_anio", "anio"), ("fact_canal_nacional", "semana", "dim_semana", "semana"),
+    ("fact_cdc_anual", "anio", "dim_anio", "anio"),
     ("dim_distrito", "provincia_id", "dim_provincia", "provincia_id"),
     ("dim_distrito", "departamento_id", "dim_departamento", "departamento_id"),
     ("dim_provincia", "departamento_id", "dim_departamento", "departamento_id"),
@@ -271,6 +280,7 @@ def main() -> int:
         "fact_poblacion_provincia": fact_poblacion_provincia(pop, provinces),
         "fact_canal_endemico": fact_canal_endemico(cases),
         "fact_canal_nacional": fact_canal_nacional(cases),
+        "fact_cdc_anual": fact_cdc_anual(),
         "dim_distrito": dim_distrito(cases, register),
         "dim_provincia": provinces,
         "dim_departamento": dim_departamento(),
