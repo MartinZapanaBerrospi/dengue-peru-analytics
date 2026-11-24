@@ -3,11 +3,11 @@
   "name": "barras_alarma_edad",
   "position": {
     "x": 440,
-    "y": 88,
-    "z": 3000,
-    "height": 280,
+    "y": 72,
+    "z": 4000,
+    "height": 610,
     "width": 400,
-    "tabOrder": 3000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -49,6 +49,24 @@
               "queryRef": "_Medidas.% con signos de alarma o graves",
               "nativeQueryRef": "% con signos de alarma o graves",
               "displayName": "% con signos de alarma o graves"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Casos"
+                }
+              },
+              "queryRef": "_Medidas.Casos",
+              "nativeQueryRef": "Casos"
             }
           ]
         }
@@ -136,6 +154,13 @@
               "expr": {
                 "Literal": {
                   "Value": "1D"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

@@ -3,10 +3,10 @@
   "name": "tabla_anios",
   "position": {
     "x": 24,
-    "y": 364,
+    "y": 358,
     "z": 4000,
-    "height": 318,
-    "width": 808,
+    "height": 324,
+    "width": 1232,
     "tabOrder": 4000
   },
   "visual": {
@@ -73,36 +73,6 @@
               "queryRef": "_Medidas.Incidencia por 100 mil",
               "nativeQueryRef": "Incidencia por 100 mil",
               "displayName": "Incidencia por 100 mil"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Medidas"
-                    }
-                  },
-                  "Property": "Distritos con casos"
-                }
-              },
-              "queryRef": "_Medidas.Distritos con casos",
-              "nativeQueryRef": "Distritos con casos",
-              "displayName": "Distritos"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Medidas"
-                    }
-                  },
-                  "Property": "Fallecidos (CDC)"
-                }
-              },
-              "queryRef": "_Medidas.Fallecidos (CDC)",
-              "nativeQueryRef": "Fallecidos (CDC)",
-              "displayName": "Fallecidos"
             },
             {
               "field": {
@@ -211,7 +181,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "70D"
+                  "Value": "90D"
                 }
               }
             }
@@ -225,7 +195,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "110D"
+                  "Value": "240D"
                 }
               }
             }
@@ -239,7 +209,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "130D"
+                  "Value": "200D"
                 }
               }
             }
@@ -253,7 +223,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "110D"
+                  "Value": "200D"
                 }
               }
             }
@@ -267,35 +237,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "90D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Medidas.Distritos con casos"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "100D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Medidas.Fallecidos (CDC)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "90D"
+                  "Value": "160D"
                 }
               }
             }

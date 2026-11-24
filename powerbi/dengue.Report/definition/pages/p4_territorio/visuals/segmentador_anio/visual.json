@@ -3,11 +3,11 @@
   "name": "segmentador_anio",
   "position": {
     "x": 1056,
-    "y": 12,
-    "z": 1000,
-    "height": 64,
+    "y": 8,
+    "z": 2000,
+    "height": 56,
     "width": 200,
-    "tabOrder": 1000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "slicer",

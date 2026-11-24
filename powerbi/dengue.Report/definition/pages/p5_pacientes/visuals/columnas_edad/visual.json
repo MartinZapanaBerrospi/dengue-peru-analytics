@@ -3,11 +3,11 @@
   "name": "columnas_edad",
   "position": {
     "x": 24,
-    "y": 88,
-    "z": 2000,
-    "height": 280,
+    "y": 72,
+    "z": 3000,
+    "height": 610,
     "width": 400,
-    "tabOrder": 2000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -135,6 +135,13 @@
               "expr": {
                 "Literal": {
                   "Value": "1D"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

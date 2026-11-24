@@ -3,10 +3,10 @@
   "name": "titulo",
   "position": {
     "x": 24,
-    "y": 8,
+    "y": 14,
     "z": 0,
-    "height": 72,
-    "width": 1000,
+    "height": 44,
+    "width": 840,
     "tabOrder": 0
   },
   "visual": {
@@ -19,23 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "¿Cuándo se concentra el dengue?",
+                    "value": "La temporada se adelanta: en 2024 el pico llegó seis semanas antes",
                     "textStyle": {
                       "fontFamily": "Segoe UI Semibold",
                       "fontSize": "18pt",
                       "color": "#1b1f24"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "La temporada normal llega a su pico hacia la semana 16; 2023 fue tardía (semana 20) y 2024 llegó seis semanas antes",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
-                      "color": "#4a5058"
                     }
                   }
                 ]

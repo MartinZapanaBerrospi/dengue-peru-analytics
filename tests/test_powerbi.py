@@ -72,6 +72,8 @@ def test_los_visuales_caben_en_el_lienzo_y_no_se_enciman():
             assert p["x"] + p["width"] <= 1280 and p["y"] + p["height"] <= 720, (page, name)
         for i, (a, pa) in enumerate(boxes):
             for b, pb in boxes[i + 1:]:
+                if a.startswith("nota_") or b.startswith("nota_"):
+                    continue          # las anotaciones van dentro del gráfico a propósito
                 overlap = (pa["x"] < pb["x"] + pb["width"] and pb["x"] < pa["x"] + pa["width"]
                            and pa["y"] < pb["y"] + pb["height"] and pb["y"] < pa["y"] + pa["height"])
                 assert not overlap, (page, a, b)
@@ -106,6 +108,26 @@ def test_cada_pagina_tiene_titulo_y_fuente():
     for page, visuals in visuals_by_page().items():
         names = {v["name"] for v in visuals}
         assert {"titulo", "fuente"} <= names, page
+
+
+def test_estandar_gerencial_recorrido_corto_y_poco_texto():
+    import json
+    pages_dir = ROOT / "powerbi" / "dengue.Report" / "definition" / "pages"
+    order = json.loads((pages_dir / "pages.json").read_text(encoding="utf-8"))["pageOrder"]
+    meta = {name: json.loads((pages_dir / name / "page.json").read_text(encoding="utf-8")) for name in order}
+    visible = [name for name in order if meta[name].get("visibility") != "HiddenInViewMode"]
+    assert visible == ["p1_resumen", "p6_brotes", "p3_temporada", "p4_territorio"]      # orden del guion
+    assert meta["p7_notas"].get("visibility") == "HiddenInViewMode"
+    visuals = visuals_by_page()
+    for page in visible:
+        names = {v["name"] for v in visuals[page]}
+        assert "boton_sobre_datos" in names, page
+        assert not any(n.startswith("lectura") for n in names), page                   # sin recuadros de texto
+        titulo = next(v for v in visuals[page] if v["name"] == "titulo")
+        paragraphs = titulo["visual"]["objects"]["general"][0]["properties"]["paragraphs"]
+        assert len(paragraphs) == 1 and len(paragraphs[0]["textRuns"][0]["value"].split()) <= 13, page
+        for v in visuals[page]:
+            assert "'smooth'" not in json.dumps(v), (page, v["name"])                          # líneas rectas
 
 
 def test_cada_columna_del_csv_esta_en_el_modelo():

@@ -4,12 +4,5 @@
   "displayName": "3. Temporada",
   "displayOption": "FitToPage",
   "height": 720,
-  "width": 1280,
-  "visualInteractions": [
-    {
-      "source": "segmentador_anio",
-      "target": "tabla_pico",
-      "type": "NoFilter"
-    }
-  ]
+  "width": 1280
 }

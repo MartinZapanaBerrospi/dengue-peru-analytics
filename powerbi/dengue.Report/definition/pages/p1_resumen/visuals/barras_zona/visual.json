@@ -3,11 +3,11 @@
   "name": "barras_zona",
   "position": {
     "x": 848,
-    "y": 196,
-    "z": 8000,
-    "height": 300,
+    "y": 224,
+    "z": 13000,
+    "height": 416,
     "width": 408,
-    "tabOrder": 8000
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -43,6 +43,25 @@
                       "Entity": "_Medidas"
                     }
                   },
+                  "Property": "% de los casos del país"
+                }
+              },
+              "queryRef": "_Medidas.% de los casos del país",
+              "nativeQueryRef": "% de los casos del país",
+              "displayName": "% de los casos"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
                   "Property": "Casos"
                 }
               },
@@ -62,7 +81,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "Casos"
+                "Property": "% de los casos del país"
               }
             },
             "direction": "Descending"
@@ -152,6 +171,13 @@
               "expr": {
                 "Literal": {
                   "Value": "1D"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -319,7 +345,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Casos por zona de análisis'"
+                  "Value": "'Parte de los casos por zona, 2000–2024'"
                 }
               }
             },

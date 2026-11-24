@@ -256,6 +256,252 @@ table _Medidas
 		displayFolder: 7. Textos
 		lineageTag: d6f6323c-5619-500e-b331-734def2ed378
 
+	/// Incidencia del año anterior al elegido.
+	measure 'Incidencia año anterior' =
+			VAR y = SELECTEDVALUE ( dim_anio[anio] )
+			RETURN
+			    IF ( NOT ISBLANK ( y ), CALCULATE ( [Incidencia por 100 mil], REMOVEFILTERS ( dim_anio ), dim_anio[anio] = y - 1 ) )
+		formatString: #,##0.0
+		displayFolder: 8. Tablero
+		lineageTag: 35e94431-1b97-5b8f-b244-96e89ab3ea55
+
+	/// Fallecidos (CDC) del año anterior al elegido.
+	measure 'Fallecidos año anterior' =
+			VAR y = SELECTEDVALUE ( dim_anio[anio] )
+			RETURN
+			    IF ( NOT ISBLANK ( y ), CALCULATE ( [Fallecidos (CDC)], REMOVEFILTERS ( dim_anio ), dim_anio[anio] = y - 1 ) )
+		formatString: #,##0
+		displayFolder: 8. Tablero
+		lineageTag: 5b0c254a-d816-52f5-aca1-bcba0ac5ebd5
+
+	/// Distritos con casos el año anterior al elegido.
+	measure 'Distritos año anterior' =
+			VAR y = SELECTEDVALUE ( dim_anio[anio] )
+			RETURN
+			    IF ( NOT ISBLANK ( y ), CALCULATE ( [Distritos con casos], REMOVEFILTERS ( dim_anio ), dim_anio[anio] = y - 1 ) )
+		formatString: #,##0
+		displayFolder: 8. Tablero
+		lineageTag: f5d7f6f3-8297-54c0-ab2d-037c98c955e8
+
+	/// Semanas del país sobre el umbral de epidemia el año anterior al elegido.
+	measure 'Semanas sobre el umbral año anterior' =
+			VAR y = SELECTEDVALUE ( dim_anio[anio] )
+			RETURN
+			    IF ( NOT ISBLANK ( y ), CALCULATE ( [Semanas del país sobre el canal], REMOVEFILTERS ( dim_anio ), dim_anio[anio] = y - 1 ) )
+		formatString: #,##0
+		displayFolder: 8. Tablero
+		lineageTag: 65f7e570-5e5a-556e-91d4-4cd2aa26dc9a
+
+	/// Cambio de Casos frente al año anterior, con flecha.
+	measure 'Comparación casos' =
+			VAR a = [Casos]
+			VAR b = [Casos año anterior]
+			VAR y = SELECTEDVALUE ( dim_anio[anio] )
+			VAR v = DIVIDE ( a - b, b )
+			RETURN
+			    IF (
+			        ISBLANK ( y ) || ISBLANK ( b ) || b = 0,
+			        "Elija un año para comparar",
+			        IF ( v >= 0, "▲ ", "▼ " ) & SUBSTITUTE ( FORMAT ( ABS ( v ) * 100, "0.0", "en-US" ), ".", "," ) & " % vs " & ( y - 1 )
+			    )
+		displayFolder: 8. Tablero
+		lineageTag: 76cfd71d-834f-5638-9f7c-a1553a0f33bc
+
+	/// Rojo si sube, verde si baja.
+	measure 'Color comparación casos' =
+			VAR a = [Casos]
+			VAR b = [Casos año anterior]
+			RETURN
+			    IF ( ISBLANK ( b ) || b = 0, "#b8bec6", IF ( a > b, "#b8433a", "#2a7d4f" ) )
+		displayFolder: 8. Tablero
+		lineageTag: 383cbf7f-b328-5313-9d20-bae78b1c6fef
+
+	/// Cambio de Incidencia por 100 mil frente al año anterior, con flecha.
+	measure 'Comparación incidencia' =
+			VAR a = [Incidencia por 100 mil]
+			VAR b = [Incidencia año anterior]
+			VAR y = SELECTEDVALUE ( dim_anio[anio] )
+			VAR v = DIVIDE ( a - b, b )
+			RETURN
+			    IF (
+			        ISBLANK ( y ) || ISBLANK ( b ) || b = 0,
+			        "Elija un año para comparar",
+			        IF ( v >= 0, "▲ ", "▼ " ) & SUBSTITUTE ( FORMAT ( ABS ( v ) * 100, "0.0", "en-US" ), ".", "," ) & " % vs " & ( y - 1 )
+			    )
+		displayFolder: 8. Tablero
+		lineageTag: 93798988-beb4-5d49-b270-a2dbb86b19f8
+
+	/// Rojo si sube, verde si baja.
+	measure 'Color comparación incidencia' =
+			VAR a = [Incidencia por 100 mil]
+			VAR b = [Incidencia año anterior]
+			RETURN
+			    IF ( ISBLANK ( b ) || b = 0, "#b8bec6", IF ( a > b, "#b8433a", "#2a7d4f" ) )
+		displayFolder: 8. Tablero
+		lineageTag: f62d121a-f400-5ff9-ab64-b057009c49b1
+
+	/// Cambio de Fallecidos (CDC) frente al año anterior, con flecha.
+	measure 'Comparación fallecidos' =
+			VAR a = [Fallecidos (CDC)]
+			VAR b = [Fallecidos año anterior]
+			VAR y = SELECTEDVALUE ( dim_anio[anio] )
+			VAR v = DIVIDE ( a - b, b )
+			RETURN
+			    IF (
+			        ISBLANK ( y ) || ISBLANK ( b ) || b = 0,
+			        "Elija un año para comparar",
+			        IF ( v >= 0, "▲ ", "▼ " ) & SUBSTITUTE ( FORMAT ( ABS ( v ) * 100, "0.0", "en-US" ), ".", "," ) & " % vs " & ( y - 1 )
+			    )
+		displayFolder: 8. Tablero
+		lineageTag: 7b52d4aa-483e-50d0-a07a-98f275cbdb9b
+
+	/// Rojo si sube, verde si baja.
+	measure 'Color comparación fallecidos' =
+			VAR a = [Fallecidos (CDC)]
+			VAR b = [Fallecidos año anterior]
+			RETURN
+			    IF ( ISBLANK ( b ) || b = 0, "#b8bec6", IF ( a > b, "#b8433a", "#2a7d4f" ) )
+		displayFolder: 8. Tablero
+		lineageTag: 3bcaa55e-0353-5485-8fcc-1f2dcfea2837
+
+	/// Cambio de Distritos con casos frente al año anterior, con flecha.
+	measure 'Comparación distritos' =
+			VAR a = [Distritos con casos]
+			VAR b = [Distritos año anterior]
+			VAR y = SELECTEDVALUE ( dim_anio[anio] )
+			VAR v = DIVIDE ( a - b, b )
+			RETURN
+			    IF (
+			        ISBLANK ( y ) || ISBLANK ( b ) || b = 0,
+			        "Elija un año para comparar",
+			        IF ( v >= 0, "▲ ", "▼ " ) & SUBSTITUTE ( FORMAT ( ABS ( v ) * 100, "0.0", "en-US" ), ".", "," ) & " % vs " & ( y - 1 )
+			    )
+		displayFolder: 8. Tablero
+		lineageTag: 29dbc854-dceb-5f31-a9d5-11a278ffdbb7
+
+	/// Rojo si sube, verde si baja.
+	measure 'Color comparación distritos' =
+			VAR a = [Distritos con casos]
+			VAR b = [Distritos año anterior]
+			RETURN
+			    IF ( ISBLANK ( b ) || b = 0, "#b8bec6", IF ( a > b, "#b8433a", "#2a7d4f" ) )
+		displayFolder: 8. Tablero
+		lineageTag: b9323e35-f9d5-5341-8bcd-7efc1f9f1bd3
+
+	/// Cambio de Semanas del país sobre el canal frente al año anterior, con flecha.
+	measure 'Comparación semanas' =
+			VAR a = [Semanas del país sobre el canal]
+			VAR b = [Semanas sobre el umbral año anterior]
+			VAR y = SELECTEDVALUE ( dim_anio[anio] )
+			VAR v = DIVIDE ( a - b, b )
+			RETURN
+			    IF (
+			        ISBLANK ( y ) || ISBLANK ( b ) || b = 0,
+			        "Elija un año para comparar",
+			        IF ( v >= 0, "▲ ", "▼ " ) & SUBSTITUTE ( FORMAT ( ABS ( v ) * 100, "0.0", "en-US" ), ".", "," ) & " % vs " & ( y - 1 )
+			    )
+		displayFolder: 8. Tablero
+		lineageTag: 385043f0-e0a4-5fe2-9cd3-ed5416bb40fc
+
+	/// Rojo si sube, verde si baja.
+	measure 'Color comparación semanas' =
+			VAR a = [Semanas del país sobre el canal]
+			VAR b = [Semanas sobre el umbral año anterior]
+			RETURN
+			    IF ( ISBLANK ( b ) || b = 0, "#b8bec6", IF ( a > b, "#b8433a", "#2a7d4f" ) )
+		displayFolder: 8. Tablero
+		lineageTag: bf42b61f-c652-53ca-967b-d7efc2701f2b
+
+	/// Resalta 2023 y 2024 en el gráfico de casos por año (la conclusión de la página 1).
+	measure 'Color año' = IF ( SELECTEDVALUE ( dim_anio[anio] ) >= 2023, "#1f5f99", "#b8bec6" )
+		displayFolder: 8. Tablero
+		lineageTag: e25db9d0-8a09-58af-ac37-394904d0e810
+
+	/// Rojo para los territorios sobre la incidencia nacional.
+	measure 'Color incidencia' = IF ( [Veces la incidencia nacional] > 1, "#b8433a", "#b8bec6" )
+		displayFolder: 8. Tablero
+		lineageTag: 1db29025-153b-5d5e-8f3e-291251e92431
+
+	/// Rojo para los departamentos que pasaron la mitad del año o más sobre el umbral de epidemia.
+	measure 'Color semanas sobre el umbral' = IF ( [% de semanas sobre el canal] >= 0.5, "#b8433a", "#1b1f24" )
+		displayFolder: 8. Tablero
+		lineageTag: b0f969e0-7e3d-52a3-a29a-5ed1656dae53
+
+	/// Departamentos con incidencia mayor que la nacional en el periodo elegido.
+	measure 'Departamentos sobre la nacional' = COUNTROWS ( FILTER ( VALUES ( dim_departamento[departamento_id] ), [Veces la incidencia nacional] > 1 ) )
+		formatString: #,##0
+		displayFolder: 8. Tablero
+		lineageTag: 866002de-e2b7-5ccf-abd7-079128547d28
+
+	/// Casos del país por encima del umbral de epidemia (percentil 90 de los 5 años previos), solo en semanas sobre el canal.
+	measure 'Exceso sobre el umbral (país)' = SUMX ( fact_canal_nacional, IF ( fact_canal_nacional[sobre_canal] = 1, fact_canal_nacional[casos] - fact_canal_nacional[umbral] ) )
+		formatString: #,##0
+		displayFolder: 8. Tablero
+		lineageTag: c5c8e13f-fda9-5b97-a9be-88a5c6b9ccbc
+
+	/// Casos del país hasta el umbral de epidemia; con el exceso, suma los casos de la semana.
+	measure 'Casos hasta el umbral (país)' =
+			VAR c = SUM ( fact_canal_nacional[casos] )
+			RETURN
+			    IF ( NOT ISBLANK ( c ), c - [Exceso sobre el umbral (país)] )
+		formatString: #,##0
+		displayFolder: 8. Tablero
+		lineageTag: 55e015e5-e9b1-561a-8d97-53b1c5a1ff43
+
+	/// Primera semana del año en que los casos del país superaron el umbral de epidemia.
+	measure 'Primera semana sobre el umbral' = CALCULATE ( MIN ( fact_canal_nacional[semana] ), fact_canal_nacional[sobre_canal] = 1 )
+		formatString: 0
+		displayFolder: 8. Tablero
+		lineageTag: 368937f1-37fb-5eaf-9426-949b52a91f7b
+
+	/// Semanas entre la primera semana sobre el umbral y la semana pico: el tiempo que dio la alerta.
+	measure 'Semanas de aviso' =
+			VAR p = [Primera semana sobre el umbral]
+			VAR s = [Semana pico]
+			RETURN
+			    IF ( NOT ISBLANK ( p ) && s >= p, s - p )
+		formatString: 0
+		displayFolder: 8. Tablero
+		lineageTag: 06929053-1ed7-50db-9608-3f62070e17bf
+
+	/// Anotación del gráfico del canal: cuándo se cruzó el umbral y cuándo llegó el pico.
+	measure 'Nota del canal' =
+			VAR p = [Primera semana sobre el umbral]
+			RETURN
+			    IF (
+			        HASONEVALUE ( dim_anio[anio] ),
+			        IF (
+			            ISBLANK ( p ),
+			            "El país no superó el umbral este año",
+			            "Cruzó el umbral en la semana " & p & " · pico en la semana " & [Semana pico]
+			        ),
+			        "Elija un año"
+			    )
+		displayFolder: 8. Tablero
+		lineageTag: 15557b23-1aa4-535e-8ad9-5883e9511fd7
+
+	/// Puesto del departamento por semanas sobre el umbral de epidemia; sirve para mostrar solo los 7 primeros.
+	measure 'Puesto por semanas sobre el umbral' =
+			IF (
+			    HASONEVALUE ( dim_departamento[departamento] ),
+			    RANKX ( ALLSELECTED ( dim_departamento[departamento] ), [Semanas sobre el canal], , DESC )
+			)
+		formatString: 0
+		displayFolder: 8. Tablero
+		lineageTag: a78fc1ab-7e25-545f-94e9-7fb31b726ffb
+
+	/// Puesto de la provincia por casos; sirve para mostrar solo las 7 primeras.
+	measure 'Puesto de la provincia por casos' =
+			VAR c = [Casos]
+			RETURN
+			    IF (
+			        HASONEVALUE ( dim_provincia[provincia_unica] ) && NOT ISBLANK ( c ),
+			        1 + COUNTROWS ( FILTER ( CALCULATETABLE ( ADDCOLUMNS ( VALUES ( dim_provincia[provincia_unica] ), "@c", [Casos] ), REMOVEFILTERS ( dim_departamento ), REMOVEFILTERS ( dim_provincia ) ), [@c] > c ) )
+			    )
+		formatString: 0
+		displayFolder: 8. Tablero
+		lineageTag: d007e641-c077-53eb-98d2-044d192d3065
+
 	column Columna
 		dataType: string
 		isHidden

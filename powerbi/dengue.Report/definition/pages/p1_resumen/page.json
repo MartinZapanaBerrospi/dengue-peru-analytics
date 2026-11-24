@@ -4,5 +4,22 @@
   "displayName": "1. Resumen",
   "displayOption": "FitToPage",
   "height": 720,
-  "width": 1280
+  "width": 1280,
+  "visualInteractions": [
+    {
+      "source": "segmentador_anio",
+      "target": "columnas_anio",
+      "type": "NoFilter"
+    },
+    {
+      "source": "segmentador_anio",
+      "target": "barras_zona",
+      "type": "NoFilter"
+    },
+    {
+      "source": "segmentador_anio",
+      "target": "nota_2023_2024",
+      "type": "NoFilter"
+    }
+  ]
 }
