@@ -130,6 +130,7 @@ def main() -> None:
             "displayOption": "FitToPage",
             "height": 720,
             "width": 1280,
+            **({"visibility": "HiddenInViewMode"} if page.get("hidden") else {}),
             **({"visualInteractions": page["interactions"]} if page.get("interactions") else {}),
         })
         for z, visual in enumerate(page.get("visuals", [])):

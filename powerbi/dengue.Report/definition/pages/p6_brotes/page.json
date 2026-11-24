@@ -1,8 +1,15 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "p6_brotes",
-  "displayName": "6. Brotes",
+  "displayName": "2. Alerta temprana",
   "displayOption": "FitToPage",
   "height": 720,
-  "width": 1280
+  "width": 1280,
+  "visualInteractions": [
+    {
+      "source": "segmentador_anio",
+      "target": "columnas_semanas_anio",
+      "type": "NoFilter"
+    }
+  ]
 }

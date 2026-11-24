@@ -3,10 +3,10 @@
   "name": "titulo",
   "position": {
     "x": 24,
-    "y": 8,
+    "y": 14,
     "z": 0,
-    "height": 72,
-    "width": 1232,
+    "height": 44,
+    "width": 1000,
     "tabOrder": 0
   },
   "visual": {
@@ -19,23 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "¿Cómo evolucionaron los casos y qué años fueron epidemia?",
+                    "value": "La letalidad no subió con los casos: 0,10 % en 2024",
                     "textStyle": {
                       "fontFamily": "Segoe UI Semibold",
                       "fontSize": "18pt",
                       "color": "#1b1f24"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Del valle de 2018 (4 698 casos) a 256 641 en 2023 y 271 531 en 2024: ya no son epidemias aisladas",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
-                      "color": "#4a5058"
                     }
                   }
                 ]

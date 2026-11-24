@@ -1,9 +1,11 @@
 ﻿# Captura cada página del informe abierto en Power BI Desktop, sin mover el mouse ni robar el foco.
 # Cambia de página con UI Automation y captura la ventana con PrintWindow (funciona aunque esté tapada).
 #
-# Uso:  powershell -ExecutionPolicy Bypass -File tools\capturas.ps1 -Salida <carpeta> [-Recorte]
+# Uso:  powershell -ExecutionPolicy Bypass -File tools\capturas.ps1 -Salida <carpeta> [-Proceso <PID>]
+# -Proceso: el PBIDesktop que abrió dengue.pbip (si hay varios Desktop abiertos, se busca por su línea de comando).
 param(
     [Parameter(Mandatory = $true)][string]$Salida,
+    [int]$Proceso = 0,
     [switch]$Recorte
 )
 
@@ -20,8 +22,13 @@ public static class Win {
 }
 '@
 
-$paginas = @("1. Resumen", "2. Epidemias", "3. Temporada", "4. Territorio", "5. Pacientes", "6. Brotes", "7. Notas")
-$proc = Get-Process PBIDesktop | Where-Object MainWindowTitle | Select-Object -First 1
+# En el orden de docs/img (01 a 07): el recorrido y luego las páginas ocultas
+$paginas = @("1. Resumen", "2. Alerta temprana", "3. Temporada", "4. Territorio", "Detalle: año por año", "Detalle: pacientes", "Sobre los datos")
+if (-not $Proceso) {
+    $Proceso = (Get-CimInstance Win32_Process -Filter "Name='PBIDesktop.exe'" |
+        Where-Object { $_.CommandLine -like '*dengue.pbip*' } | Select-Object -First 1).ProcessId
+}
+$proc = Get-Process -Id $Proceso -ErrorAction SilentlyContinue
 if (-not $proc) { throw "Power BI Desktop no está abierto" }
 $hwnd = $proc.MainWindowHandle
 $raiz = [System.Windows.Automation.AutomationElement]::FromHandle($hwnd)
@@ -47,14 +54,14 @@ function Capturar([string]$archivo) {
 
 for ($i = 0; $i -lt $paginas.Count; $i++) {
     $nombre = $paginas[$i]
-    # Busca la pestaña por el número de página ("3. "), que no depende de tildes ni del estado de la pestaña
-    $prefijo = $nombre.Substring(0, 3)
+    # Busca la pestaña por su nombre completo (la pestaña puede agregar texto, como "oculta")
+    $prefijo = $nombre
     $pestana = $null
     # El árbol de accesibilidad tarda en cargarse tras restaurar la ventana: hasta 15 intentos
     for ($intento = 0; $intento -lt 15 -and -not $pestana; $intento++) {
         if ($intento) { Start-Sleep -Seconds 3 }
         foreach ($e in $raiz.FindAll([System.Windows.Automation.TreeScope]::Descendants, [System.Windows.Automation.Condition]::TrueCondition)) {
-            if ($e.Current.Name -and $e.Current.Name.StartsWith($prefijo) -and $e.Current.Name.Length -lt 40) {
+            if ($e.Current.Name -and $e.Current.Name.Contains($prefijo) -and $e.Current.Name.Length -lt 40) {
                 $p0 = $null
                 if ($e.TryGetCurrentPattern([System.Windows.Automation.SelectionItemPattern]::Pattern, [ref]$p0) -or
                     $e.TryGetCurrentPattern([System.Windows.Automation.InvokePattern]::Pattern, [ref]$p0)) { $pestana = $e; break }

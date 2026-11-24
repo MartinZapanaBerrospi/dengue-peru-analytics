@@ -7,8 +7,8 @@ texto, revisable en GitHub sin abrir Power BI. **Ninguno de los dos se armó a m
 scripts, así que cada visual, medida y relación está en el historial de cambios:
 
 ```bash
-python tools/build_model.py    # modelo: 14 tablas, 18 relaciones y 38 medidas DAX
-python tools/build_report.py   # informe: 7 páginas, 57 visuales, tema propio
+python tools/build_model.py    # modelo: 14 tablas, 18 relaciones y 63 medidas DAX (38 de análisis y 25 de presentación)
+python tools/build_report.py   # informe: 4 páginas de recorrido y 3 ocultas, 70 visuales, tema propio
 ```
 
 ## Cómo abrirlo
@@ -24,33 +24,47 @@ python tools/build_report.py   # informe: 7 páginas, 57 visuales, tema propio
 
 ## Páginas
 
-Cada página tiene el mismo esquema:
-- **título:** la pregunta;
-- **subtítulo:** la respuesta;
-- **visuales:** la evidencia;
-- **"Lectura":** qué significa para gerencia, con su advertencia;
+El tablero se presenta en voz alta a gerencia, así que la pantalla lleva poco texto:
+- **título:** la conclusión, en una línea (no la pregunta);
+- **visuales:** la evidencia, con las anotaciones dentro del gráfico;
+- **«Acción: …»:** una sola línea con lo que conviene decidir;
 - **pie:** la fuente.
 
-Los textos toman sus cifras de [`reports/analisis/cifras_clave.csv`](../reports/analisis/cifras_clave.csv).
-Ninguna cifra se escribió a mano, así que el tablero no puede contradecir al análisis.
+Lo que antes iba en recuadros de «Lectura» se dice al presentar; el guion está fuera del repositorio. Las cifras de los
+títulos salen de [`reports/analisis/cifras_clave.csv`](../reports/analisis/cifras_clave.csv): ninguna se escribió a
+mano.
 
-| Página | Pregunta | Qué tiene |
+**Recorrido (4 páginas, en el orden en que se presentan):**
+
+| Página | Título (la conclusión) | Qué tiene |
 |---|---|---|
-| ![](../docs/img/01_resumen.png) **1. Resumen** | Resumen ejecutivo | 5 indicadores, casos por año y por zona, «qué está pasando» y «qué conviene hacer» |
-| ![](../docs/img/02_epidemias.png) **2. Epidemias** (P1) | ¿Cómo evolucionaron los casos y qué años fueron epidemia? | Casos, incidencia y fallecidos por año, y una tabla año por año con variación y letalidad |
-| ![](../docs/img/03_temporada.png) **3. Temporada** (P2) | ¿Cuándo se concentra el dengue? | Curva semanal de los años que se elijan (abre con 2017, 2022, 2023 y 2024) y semana pico de cada año |
-| ![](../docs/img/04_territorio.png) **4. Territorio** (P3) | ¿Dónde se concentra por habitante? | Incidencia por departamento (abre en 2023–2024) y provincias con más casos |
-| ![](../docs/img/05_pacientes.png) **5. Pacientes** (P4, P5) | ¿A quién afecta y qué tan graves son los casos? | Casos y gravedad por curso de vida, gravedad por año, edad promedio y parte de mujeres |
-| ![](../docs/img/06_brotes.png) **6. Brotes** (P6) | ¿Qué semanas se salen del canal endémico? | Casos del país frente al umbral del canal y departamentos con más semanas sobre el canal |
-| ![](../docs/img/07_notas.png) **7. Notas** | | Definiciones, fuentes, validación y límites |
+| ![](../docs/img/01_resumen.png) **1. Resumen** | La mitad de los casos de 25 años cayó en 2023 y 2024 | 4 tarjetas (casos, incidencia, fallecidos, distritos) con su cambio frente al año anterior en rojo o verde; casos por año con 2023 y 2024 resaltados; parte de los casos por zona |
+| ![](../docs/img/02_alerta.png) **2. Alerta temprana** (P6) | En 2023 la alerta llegó 19 semanas antes del pico | Casos del país por semana frente al **umbral de epidemia**, con el exceso en rojo; semanas de aviso; los 7 departamentos con más semanas sobre el umbral |
+| ![](../docs/img/03_temporada.png) **3. Temporada** (P2) | La temporada se adelanta: en 2024 el pico llegó seis semanas antes | Parte de los casos del año en cada semana, para comparar años de distinto tamaño, y la semana pico de cada año |
+| ![](../docs/img/04_territorio.png) **4. Territorio** (P3) | En 2023–2024, Tumbes tuvo 4,4 veces la incidencia nacional | Incidencia por departamento (en rojo, los que superan la nacional) y las 7 provincias con más casos |
 
-**Segmentadores.** Año en el resumen, los pacientes, la temporada, el territorio y los brotes. Vacío significa
-todo el periodo; *Temporada*, *Territorio* y *Brotes* abren con años elegidos.
+**Páginas ocultas** (no salen en el recorrido; se abren desde el panel de páginas para responder preguntas):
+
+| Página | Qué tiene |
+|---|---|
+| ![](../docs/img/05_detalle_anios.png) **Detalle: año por año** (P1) | Incidencia y letalidad por año y la tabla año por año |
+| ![](../docs/img/06_detalle_pacientes.png) **Detalle: pacientes** (P4, P5) | Casos por curso de vida y parte con signos de alarma o graves, por edad y por año |
+| ![](../docs/img/07_sobre_datos.png) **Sobre los datos** | Fuente, fecha de corte y tres advertencias. Se llega con el botón **ⓘ Sobre los datos** de cada página y se vuelve con **← Volver** |
+
+Las validaciones (V1–V4 y las 9 702 comparaciones de medidas) están en el [README principal](../README.md#cómo-se-construyó).
+
+**Segmentadores.** Año en cada página del recorrido. En el resumen solo mueve las tarjetas (los gráficos muestran
+siempre 2000–2024); la alerta temprana abre en 2023, la temporada en 2017, 2022, 2023 y 2024, y el territorio en
+2023–2024.
 
 ## Decisiones de diseño
 
-- **Una pregunta por página**, con la respuesta en el subtítulo. Un gerente entiende la página sin mirar los
-  gráficos.
+- **El título es la conclusión** y no hay recuadros de texto: el tablero se explica en voz alta. Las anotaciones van
+  dentro del gráfico, las tarjetas comparan con el año anterior (rojo si sube, verde si baja) y el detalle técnico
+  queda en los tooltips.
+- **La alerta temprana va segunda.** El canal endémico es lo más útil para decidir: avisa semanas antes del pico. El
+  exceso sobre el **umbral de epidemia** (percentil 90 de los 5 años previos) se pinta en rojo.
+- **Tablas de 7 filas como máximo**, con barras de datos, filtradas por una medida de puesto (RANKX).
 - **Incidencia con el denominador correcto.** La medida usa la población de la provincia o del departamento
   según lo que se muestre, cuenta solo los casos de los años que tienen población, y sobre varios años suma
   casos y población (nunca promedia tasas). Ver la [Fase 4](../docs/04_modelado.md#4-cómo-se-calcula-la-incidencia-por-100-mil).
@@ -58,8 +72,6 @@ todo el periodo; *Temporada*, *Territorio* y *Brotes* abren con años elegidos.
   los años anteriores, y una medida propia devuelve vacío antes de 2011.
 - **Semanas y años en eje continuo.** Un eje de 53 categorías o de 25 años produce una barra de desplazamiento
   que esconde justo los años que más importan (2023 y 2024).
-- **El canal endémico se explica en la propia página.** Una semana sobre el canal es una señal para revisar, no un
-  brote confirmado; la página lo dice.
 - **Números sin abreviar.** Power BI abrevia por defecto («256 mil»). Se desactivó en etiquetas, ejes y tarjetas.
 - **Tema propio** ([`Dengue.json`](dengue.Report/StaticResources/RegisteredResources/Dengue.json)): un color de acento,
   fondo gris claro y tarjetas blancas, sin sombras ni bordes. Nada compite con los datos.
@@ -70,6 +82,8 @@ todo el periodo; *Temporada*, *Territorio* y *Brotes* abren con años elegidos.
    - ningún visual se sale del lienzo de 1280 × 720 ni se encima con otro;
    - cada medida y columna que usa un visual existe en el modelo;
    - cada página tiene título y pie;
+   - el recorrido es de 4 páginas en el orden del guion, con títulos de 13 palabras o menos, botón ⓘ y sin
+     recuadros de lectura; «Sobre los datos» está oculta;
    - los archivos versionados son exactamente los que producen los generadores.
 2. **Medidas contra Python.** 9 702 comparaciones en Power BI Desktop, cero diferencias (ver la
    [Fase 4](../docs/04_modelado.md)).
@@ -81,7 +95,7 @@ todo el periodo; *Temporada*, *Territorio* y *Brotes* abren con años elegidos.
 
 ```bash
 powershell -File tools/refrescar.ps1 -Puerto <puerto de Desktop>      # el modelo recién abierto está vacío
-powershell -ExecutionPolicy Bypass -File tools/capturas.ps1 -Salida <carpeta>
+powershell -ExecutionPolicy Bypass -File tools/capturas.ps1 -Salida <carpeta>   # busca el Desktop que abrió dengue.pbip
 python tools/recortar_capturas.py <carpeta>
 ```
 

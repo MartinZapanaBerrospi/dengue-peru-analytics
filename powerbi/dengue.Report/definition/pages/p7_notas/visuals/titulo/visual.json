@@ -3,10 +3,10 @@
   "name": "titulo",
   "position": {
     "x": 24,
-    "y": 8,
+    "y": 14,
     "z": 0,
-    "height": 72,
-    "width": 1016,
+    "height": 44,
+    "width": 840,
     "tabOrder": 0
   },
   "visual": {
@@ -19,23 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Notas",
+                    "value": "Sobre los datos",
                     "textStyle": {
                       "fontFamily": "Segoe UI Semibold",
                       "fontSize": "18pt",
                       "color": "#1b1f24"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Definiciones, fuentes, validaciones y límites",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
-                      "color": "#4a5058"
                     }
                   }
                 ]

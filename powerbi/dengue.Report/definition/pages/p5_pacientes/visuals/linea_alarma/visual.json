@@ -3,11 +3,11 @@
   "name": "linea_alarma",
   "position": {
     "x": 856,
-    "y": 88,
-    "z": 4000,
-    "height": 280,
+    "y": 72,
+    "z": 5000,
+    "height": 610,
     "width": 400,
-    "tabOrder": 4000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "lineChart",
@@ -212,6 +212,26 @@
               "expr": {
                 "Literal": {
                   "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lineStyles": [
+        {
+          "properties": {
+            "lineChartType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'straight'"
+                }
+              }
+            },
+            "strokeWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
                 }
               }
             }

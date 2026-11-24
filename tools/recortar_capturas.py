@@ -16,7 +16,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 PAGE_BACKGROUND = np.array([244, 245, 247])     # "page" en el tema Dengue.json
 BOTTOM_TRIM = 12                                  # píxeles
-NAMES = ["01_resumen", "02_epidemias", "03_temporada", "04_territorio", "05_pacientes", "06_brotes", "07_notas"]
+NAMES = ["01_resumen", "02_alerta", "03_temporada", "04_territorio", "05_detalle_anios", "06_detalle_pacientes", "07_sobre_datos"]
 
 
 def canvas_box(image: Image.Image) -> tuple[int, int, int, int]:

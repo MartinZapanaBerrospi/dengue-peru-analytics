@@ -3,10 +3,10 @@
   "name": "titulo",
   "position": {
     "x": 24,
-    "y": 8,
+    "y": 14,
     "z": 0,
-    "height": 72,
-    "width": 1000,
+    "height": 44,
+    "width": 840,
     "tabOrder": 0
   },
   "visual": {
@@ -19,23 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "¿A quién afecta y qué tan graves son los casos?",
+                    "value": "Los menores de un año son los casos más graves",
                     "textStyle": {
                       "fontFamily": "Segoe UI Semibold",
                       "fontSize": "18pt",
                       "color": "#1b1f24"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Afecta sobre todo a adultos de 30 a 59 años (38 % de los casos); uno de cada ocho llega con signos de alarma o grave",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
-                      "color": "#4a5058"
                     }
                   }
                 ]

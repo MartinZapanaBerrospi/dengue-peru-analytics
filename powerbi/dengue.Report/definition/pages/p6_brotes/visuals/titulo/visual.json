@@ -3,10 +3,10 @@
   "name": "titulo",
   "position": {
     "x": 24,
-    "y": 8,
+    "y": 14,
     "z": 0,
-    "height": 72,
-    "width": 1000,
+    "height": 44,
+    "width": 840,
     "tabOrder": 0
   },
   "visual": {
@@ -19,23 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "¿Qué semanas se salen del canal endémico?",
+                    "value": "En 2023 la alerta llegó 19 semanas antes del pico",
                     "textStyle": {
                       "fontFamily": "Segoe UI Semibold",
                       "fontSize": "18pt",
                       "color": "#1b1f24"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "En 2023 el país estuvo sobre el canal 47 semanas, desde la primera; en 2018, ninguna",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
-                      "color": "#4a5058"
                     }
                   }
                 ]

@@ -3,11 +3,11 @@
   "name": "columnas_anio",
   "position": {
     "x": 24,
-    "y": 196,
-    "z": 7000,
-    "height": 300,
+    "y": 224,
+    "z": 11000,
+    "height": 416,
     "width": 808,
-    "tabOrder": 7000
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -50,6 +50,55 @@
               "nativeQueryRef": "Casos"
             }
           ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Var. interanual"
+                }
+              },
+              "queryRef": "_Medidas.Var. interanual",
+              "nativeQueryRef": "Var. interanual",
+              "displayName": "Var. vs año anterior"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Incidencia por 100 mil"
+                }
+              },
+              "queryRef": "_Medidas.Incidencia por 100 mil",
+              "nativeQueryRef": "Incidencia por 100 mil",
+              "displayName": "Incidencia por 100 mil"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Fallecidos (CDC)"
+                }
+              },
+              "queryRef": "_Medidas.Fallecidos (CDC)",
+              "nativeQueryRef": "Fallecidos (CDC)",
+              "displayName": "Fallecidos"
+            }
+          ]
         }
       }
     },
@@ -86,13 +135,6 @@
               "expr": {
                 "Literal": {
                   "Value": "9D"
-                }
-              }
-            },
-            "axisType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Categorical'"
                 }
               }
             }
@@ -185,6 +227,37 @@
             }
           }
         }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Medidas"
+                        }
+                      },
+                      "Property": "Color año"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -271,7 +344,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Casos por año'"
+                  "Value": "'Casos por año, 2000–2024'"
                 }
               }
             },

@@ -3,11 +3,11 @@
   "name": "barras_departamento",
   "position": {
     "x": 24,
-    "y": 88,
-    "z": 2000,
-    "height": 594,
+    "y": 72,
+    "z": 3000,
+    "height": 568,
     "width": 560,
-    "tabOrder": 2000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -49,6 +49,39 @@
               "queryRef": "_Medidas.Incidencia por 100 mil",
               "nativeQueryRef": "Incidencia por 100 mil",
               "displayName": "Incidencia por 100 mil"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Casos"
+                }
+              },
+              "queryRef": "_Medidas.Casos",
+              "nativeQueryRef": "Casos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Veces la incidencia nacional"
+                }
+              },
+              "queryRef": "_Medidas.Veces la incidencia nacional",
+              "nativeQueryRef": "Veces la incidencia nacional",
+              "displayName": "Veces la nacional"
             }
           ]
         }
@@ -248,6 +281,37 @@
             }
           }
         }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Medidas"
+                        }
+                      },
+                      "Property": "Color incidencia"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -334,7 +398,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Casos por 100 mil habitantes al año, por departamento'"
+                  "Value": "'Incidencia anual por 100 mil habitantes (rojo: sobre la nacional)'"
                 }
               }
             },

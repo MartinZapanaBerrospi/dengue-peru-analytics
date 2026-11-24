@@ -3,11 +3,11 @@
   "name": "tabla_provincias",
   "position": {
     "x": 600,
-    "y": 196,
-    "z": 6000,
-    "height": 250,
+    "y": 180,
+    "z": 7000,
+    "height": 300,
     "width": 656,
-    "tabOrder": 6000
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "tableEx",
@@ -67,21 +67,6 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "Población (habitantes-año)"
-                }
-              },
-              "queryRef": "_Medidas.Población (habitantes-año)",
-              "nativeQueryRef": "Población (habitantes-año)",
-              "displayName": "Habitantes-año"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Medidas"
-                    }
-                  },
                   "Property": "Incidencia por 100 mil"
                 }
               },
@@ -117,7 +102,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "10D"
                 }
               }
             },
@@ -148,7 +133,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "10D"
                 }
               }
             },
@@ -159,6 +144,36 @@
                 }
               }
             }
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Medidas"
+                        }
+                      },
+                      "Property": "Color incidencia"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "_Medidas.Incidencia por 100 mil"
           }
         }
       ],
@@ -181,7 +196,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "160D"
+                  "Value": "170D"
                 }
               }
             }
@@ -195,7 +210,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "120D"
+                  "Value": "130D"
                 }
               }
             }
@@ -209,7 +224,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "90D"
+                  "Value": "120D"
                 }
               }
             }
@@ -223,21 +238,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "130D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Medidas.Población (habitantes-año)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "110D"
+                  "Value": "150D"
                 }
               }
             }
@@ -332,7 +333,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Provincias con más casos (elija un departamento en el gráfico)'"
+                  "Value": "'Las 7 provincias con más casos'"
                 }
               }
             },
@@ -372,5 +373,58 @@
         }
       ]
     }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "filtro_top",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Puesto de la provincia por casos"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "m",
+              "Entity": "_Medidas",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 4,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "m"
+                        }
+                      },
+                      "Property": "Puesto de la provincia por casos"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "7L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
   }
 }

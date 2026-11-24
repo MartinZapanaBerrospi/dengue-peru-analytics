@@ -53,14 +53,14 @@ MININTER.
 
 ## El tablero
 
-Siete páginas, una por pregunta: el título es la pregunta, el subtítulo es la respuesta y debajo hay la evidencia, una
-lectura para gerencia y la fuente.
+Un recorrido de cuatro páginas pensado para presentarse en voz alta: el título de cada página es la conclusión, los
+gráficos llevan las anotaciones y una sola línea dice qué decidir. El detalle por año, los pacientes y las notas sobre
+los datos quedan en páginas ocultas (botón **ⓘ Sobre los datos**).
 
 | | |
 |---|---|
-| ![Epidemias](docs/img/02_epidemias.png) **2. Epidemias.** Casos, incidencia y fallecidos por año. | ![Temporada](docs/img/03_temporada.png) **3. Temporada.** Curva semanal de los años que se elijan y semana pico. |
-| ![Territorio](docs/img/04_territorio.png) **4. Territorio.** Incidencia por departamento y provincias con más casos. | ![Pacientes](docs/img/05_pacientes.png) **5. Pacientes.** Edad, sexo y gravedad. |
-| ![Brotes](docs/img/06_brotes.png) **6. Brotes.** Casos del país frente al canal endémico. | ![Notas](docs/img/07_notas.png) **7. Notas.** Definiciones, fuentes, validaciones y límites. |
+| ![Alerta temprana](docs/img/02_alerta.png) **2. Alerta temprana.** En 2023 la alerta llegó 19 semanas antes del pico. | ![Temporada](docs/img/03_temporada.png) **3. Temporada.** En 2024 el pico llegó seis semanas antes. |
+| ![Territorio](docs/img/04_territorio.png) **4. Territorio.** En 2023–2024, Tumbes tuvo 4,4 veces la incidencia nacional. | ![Sobre los datos](docs/img/07_sobre_datos.png) **Sobre los datos** (oculta). Fuente, fecha de corte y tres advertencias. |
 
 El detalle de las páginas, el diseño y cómo abrirlo está en [`powerbi/README.md`](powerbi/README.md).
 
@@ -86,8 +86,8 @@ El detalle de las páginas, el diseño y cómo abrirlo está en [`powerbi/README
 | 3. Transformación | raw → staging → modelo en estrella agregado (1 029 421 casos en 332 850 filas), con canal endémico y linaje | [03_transformacion.md](docs/03_transformacion.md) |
 | 4. Modelado | Modelo de Power BI en TMDL con 38 medidas validadas contra Python | [04_modelado.md](docs/04_modelado.md) |
 | 5. Análisis | Respuestas a P1–P6 con cifras y advertencias | [05_analisis.md](docs/05_analisis.md) |
-| 6. Tablero | Informe de 7 páginas en PBIR, generado por script | [powerbi/README.md](powerbi/README.md) |
-| 7–8. Hallazgos y pruebas | Este README y 52 pruebas en GitHub Actions | [`.github/workflows/ci.yml`](.github/workflows/ci.yml) |
+| 6. Tablero | Informe en PBIR generado por script: recorrido de 4 páginas y 3 ocultas | [powerbi/README.md](powerbi/README.md) |
+| 7–8. Hallazgos y pruebas | Este README y 53 pruebas en GitHub Actions | [`.github/workflows/ci.yml`](.github/workflows/ci.yml) |
 
 **Lo que valida el resultado.**
 
@@ -136,7 +136,7 @@ se abre y se actualiza directamente (ver [`powerbi/README.md`](powerbi/README.md
 ├── powerbi/      dengue.pbip · modelo (TMDL) · informe (PBIR)
 ├── tools/        generadores del modelo y del informe, validación de medidas, capturas
 ├── reports/      validaciones, calidad, linaje y análisis
-├── tests/        52 pruebas con recortes de los archivos reales
+├── tests/        53 pruebas con recortes de los archivos reales
 └── docs/         una página por fase · fuentes/ (PDF oficiales) · img/ capturas del tablero
 ```
 

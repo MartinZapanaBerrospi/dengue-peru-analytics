@@ -319,6 +319,89 @@ MEASURES = [
 ]
 
 
+# 8. Tablero: medidas de presentación (comparaciones de las tarjetas, colores y el umbral de epidemia).
+# No calculan indicadores nuevos: reordenan los de arriba para que el tablero se lea sin texto.
+RED, GREEN, GREY, HIGHLIGHT = "#b8433a", "#2a7d4f", "#b8bec6", "#1f5f99"
+
+
+def previous_year(base: str) -> str:
+    return ("VAR y = SELECTEDVALUE ( dim_anio[anio] )\nRETURN\n    IF ( NOT ISBLANK ( y ), "
+            f"CALCULATE ( [{base}], REMOVEFILTERS ( dim_anio ), dim_anio[anio] = y - 1 ) )")
+
+
+def comparison(base: str, previous: str) -> tuple[str, str]:
+    """Texto «▲ 5,8 % vs 2023» y su color: subir es malo (rojo) en todos los indicadores de dengue."""
+    text = (f"VAR a = [{base}]\nVAR b = [{previous}]\nVAR y = SELECTEDVALUE ( dim_anio[anio] )\nVAR v = DIVIDE ( a - b, b )\n"
+            "RETURN\n    IF (\n        ISBLANK ( y ) || ISBLANK ( b ) || b = 0,\n        \"Elija un año para comparar\",\n"
+            "        IF ( v >= 0, \"▲ \", \"▼ \" ) & SUBSTITUTE ( FORMAT ( ABS ( v ) * 100, \"0.0\", \"en-US\" ), \".\", \",\" ) & \" % vs \" & ( y - 1 )\n    )")
+    tint = (f"VAR a = [{base}]\nVAR b = [{previous}]\nRETURN\n    IF ( ISBLANK ( b ) || b = 0, \"{GREY}\", "
+            f"IF ( a > b, \"{RED}\", \"{GREEN}\" ) )")
+    return text, tint
+
+
+BOARD = [
+    ("8. Tablero", "Incidencia año anterior", previous_year("Incidencia por 100 mil"), "#,##0.0",
+     "Incidencia del año anterior al elegido."),
+    ("8. Tablero", "Fallecidos año anterior", previous_year("Fallecidos (CDC)"), "#,##0",
+     "Fallecidos (CDC) del año anterior al elegido."),
+    ("8. Tablero", "Distritos año anterior", previous_year("Distritos con casos"), "#,##0",
+     "Distritos con casos el año anterior al elegido."),
+    ("8. Tablero", "Semanas sobre el umbral año anterior", previous_year("Semanas del país sobre el canal"), "#,##0",
+     "Semanas del país sobre el umbral de epidemia el año anterior al elegido."),
+]
+for label, base, previous in [("casos", "Casos", "Casos año anterior"),
+                              ("incidencia", "Incidencia por 100 mil", "Incidencia año anterior"),
+                              ("fallecidos", "Fallecidos (CDC)", "Fallecidos año anterior"),
+                              ("distritos", "Distritos con casos", "Distritos año anterior"),
+                              ("semanas", "Semanas del país sobre el canal", "Semanas sobre el umbral año anterior")]:
+    text, tint = comparison(base, previous)
+    BOARD += [("8. Tablero", f"Comparación {label}", text, None, f"Cambio de {base} frente al año anterior, con flecha."),
+              ("8. Tablero", f"Color comparación {label}", tint, None, "Rojo si sube, verde si baja.")]
+
+BOARD += [
+    ("8. Tablero", "Color año", f"IF ( SELECTEDVALUE ( dim_anio[anio] ) >= 2023, \"{HIGHLIGHT}\", \"{GREY}\" )", None,
+     "Resalta 2023 y 2024 en el gráfico de casos por año (la conclusión de la página 1)."),
+    ("8. Tablero", "Color incidencia", f"IF ( [Veces la incidencia nacional] > 1, \"{RED}\", \"{GREY}\" )", None,
+     "Rojo para los territorios sobre la incidencia nacional."),
+    ("8. Tablero", "Color semanas sobre el umbral", f"IF ( [% de semanas sobre el canal] >= 0.5, \"{RED}\", \"#1b1f24\" )", None,
+     "Rojo para los departamentos que pasaron la mitad del año o más sobre el umbral de epidemia."),
+    ("8. Tablero", "Departamentos sobre la nacional",
+     "COUNTROWS ( FILTER ( VALUES ( dim_departamento[departamento_id] ), [Veces la incidencia nacional] > 1 ) )", "#,##0",
+     "Departamentos con incidencia mayor que la nacional en el periodo elegido."),
+    ("8. Tablero", "Exceso sobre el umbral (país)",
+     "SUMX ( fact_canal_nacional, IF ( fact_canal_nacional[sobre_canal] = 1, fact_canal_nacional[casos] - fact_canal_nacional[umbral] ) )",
+     "#,##0", "Casos del país por encima del umbral de epidemia (percentil 90 de los 5 años previos), solo en semanas sobre el canal."),
+    ("8. Tablero", "Casos hasta el umbral (país)",
+     "VAR c = SUM ( fact_canal_nacional[casos] )\nRETURN\n    IF ( NOT ISBLANK ( c ), c - [Exceso sobre el umbral (país)] )", "#,##0",
+     "Casos del país hasta el umbral de epidemia; con el exceso, suma los casos de la semana."),
+    ("8. Tablero", "Primera semana sobre el umbral",
+     "CALCULATE ( MIN ( fact_canal_nacional[semana] ), fact_canal_nacional[sobre_canal] = 1 )", "0",
+     "Primera semana del año en que los casos del país superaron el umbral de epidemia."),
+    ("8. Tablero", "Semanas de aviso",
+     "VAR p = [Primera semana sobre el umbral]\nVAR s = [Semana pico]\nRETURN\n    IF ( NOT ISBLANK ( p ) && s >= p, s - p )", "0",
+     "Semanas entre la primera semana sobre el umbral y la semana pico: el tiempo que dio la alerta."),
+    ("8. Tablero", "Nota del canal",
+     "VAR p = [Primera semana sobre el umbral]\nRETURN\n    IF (\n        HASONEVALUE ( dim_anio[anio] ),\n"
+     "        IF (\n            ISBLANK ( p ),\n            \"El país no superó el umbral este año\",\n"
+     "            \"Cruzó el umbral en la semana \" & p & \" · pico en la semana \" & [Semana pico]\n        ),\n"
+     "        \"Elija un año\"\n    )", None,
+     "Anotación del gráfico del canal: cuándo se cruzó el umbral y cuándo llegó el pico."),
+]
+BOARD += [
+    ("8. Tablero", "Puesto por semanas sobre el umbral",
+     "IF (\n    HASONEVALUE ( dim_departamento[departamento] ),\n"
+     "    RANKX ( ALLSELECTED ( dim_departamento[departamento] ), [Semanas sobre el canal], , DESC )\n)", "0",
+     "Puesto del departamento por semanas sobre el umbral de epidemia; sirve para mostrar solo los 7 primeros."),
+    ("8. Tablero", "Puesto de la provincia por casos",
+     # La tabla también muestra el departamento: el puesto se cuenta entre todas las provincias, no dentro del departamento.
+     "VAR c = [Casos]\nRETURN\n    IF (\n        HASONEVALUE ( dim_provincia[provincia_unica] ) && NOT ISBLANK ( c ),\n"
+     "        1 + COUNTROWS ( FILTER ( CALCULATETABLE ( ADDCOLUMNS ( VALUES ( dim_provincia[provincia_unica] ), \"@c\", [Casos] ), "
+     "REMOVEFILTERS ( dim_departamento ), REMOVEFILTERS ( dim_provincia ) ), [@c] > c ) )\n    )", "0",
+     "Puesto de la provincia por casos; sirve para mostrar solo las 7 primeras."),
+]
+MEASURES += BOARD
+
+
 # ---------------------------------------------------------------------------------------------
 # Escritura
 # ---------------------------------------------------------------------------------------------
